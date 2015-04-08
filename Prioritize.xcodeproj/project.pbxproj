@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		317E69D51AB7FB3500C40FA9 /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E69D41AB7FB3500C40FA9 /* MenuControl.swift */; };
+		31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */; };
+		31A5D4CF1ABBD85D008FDFC1 /* upvote.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CD1ABBD85D008FDFC1 /* upvote.wav */; };
+		31A5D4D11ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift */; };
+		31A5D4D31ABBDAC8008FDFC1 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D21ABBDAC8008FDFC1 /* SoundPlayer.swift */; };
 		31B12BA31AA29E4E00C6B2C9 /* PrioritizeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B12BA21AA29E4E00C6B2C9 /* PrioritizeAppTests.swift */; };
 		31B12BAF1AA29F1700C6B2C9 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B12BAE1AA29F1700C6B2C9 /* TodayViewController.swift */; };
 		31B12BBA1AA29F7500C6B2C9 /* AboutUsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B12BB01AA29F7500C6B2C9 /* AboutUsWebViewController.swift */; };
@@ -78,6 +83,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		317E69D41AB7FB3500C40FA9 /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
+		31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = refresh.wav; sourceTree = "<group>"; };
+		31A5D4CD1ABBD85D008FDFC1 /* upvote.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upvote.wav; sourceTree = "<group>"; };
+		31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SoundPlayer+DesignerNewsApp.swift"; sourceTree = "<group>"; };
+		31A5D4D21ABBDAC8008FDFC1 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		31B12B871AA29E4E00C6B2C9 /* Prioritize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prioritize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B12B9C1AA29E4E00C6B2C9 /* PrioritizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrioritizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B12BA11AA29E4E00C6B2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,12 +186,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		317E69D81AB7FB4800C40FA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				317E69D41AB7FB3500C40FA9 /* MenuControl.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		31A5D4CB1ABBD85D008FDFC1 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift */,
+				31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */,
+				31A5D4CD1ABBD85D008FDFC1 /* upvote.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		31B12B7E1AA29E4E00C6B2C9 = {
 			isa = PBXGroup;
 			children = (
 				31B12C1A1AA2B01800C6B2C9 /* Frameworks */,
 				31DBC9411AB28CEF00B1C693 /* Libraries */,
 				31B12BCE1AA2A01400C6B2C9 /* Spring */,
+				317E69D81AB7FB4800C40FA9 /* Views */,
+				31A5D4CB1ABBD85D008FDFC1 /* Sounds */,
 				31B12B891AA29E4E00C6B2C9 /* PrioritizeApp */,
 				31B12B9F1AA29E4E00C6B2C9 /* PrioritizeAppTests */,
 				31B12B881AA29E4E00C6B2C9 /* Products */,
@@ -264,6 +294,7 @@
 				31B12BDC1AA2A01400C6B2C9 /* LoadingView.swift */,
 				31B12BDD1AA2A01400C6B2C9 /* LoadingView.xib */,
 				31B12BDE1AA2A01400C6B2C9 /* Misc.swift */,
+				31A5D4D21ABBDAC8008FDFC1 /* SoundPlayer.swift */,
 				31B12BDF1AA2A01400C6B2C9 /* Spring.h */,
 				31B12BE01AA2A01400C6B2C9 /* Spring.swift */,
 				31B12BE11AA2A01400C6B2C9 /* SpringAnimation.swift */,
@@ -370,7 +401,6 @@
 				TargetAttributes = {
 					31B12B861AA29E4E00C6B2C9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 32FG3U99MG;
 					};
 					31B12B9B1AA29E4E00C6B2C9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -403,10 +433,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B12BC91AA29FB000C6B2C9 /* Main.storyboard in Resources */,
+				31A5D4CF1ABBD85D008FDFC1 /* upvote.wav in Resources */,
 				31B12BC51AA29F8A00C6B2C9 /* Info.plist in Resources */,
 				31B12BF91AA2A01400C6B2C9 /* LoadingView.xib in Resources */,
 				31B12C1D1AA2B2DB00C6B2C9 /* Images.xcassets in Resources */,
 				31B12BF51AA2A01400C6B2C9 /* Info.plist in Resources */,
+				31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */,
 				31B12BC81AA29FB000C6B2C9 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,10 +457,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A5D4D11ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift in Sources */,
 				31B12BFD1AA2A01400C6B2C9 /* SpringButton.swift in Sources */,
 				31B12BAF1AA29F1700C6B2C9 /* TodayViewController.swift in Sources */,
 				31B12C011AA2A01400C6B2C9 /* SpringTextView.swift in Sources */,
 				31B12BF11AA2A01400C6B2C9 /* DesignableTextField.swift in Sources */,
+				31A5D4D31ABBDAC8008FDFC1 /* SoundPlayer.swift in Sources */,
 				31B12BF21AA2A01400C6B2C9 /* DesignableTextView.swift in Sources */,
 				31B12BEE1AA2A01400C6B2C9 /* DesignableImageView.swift in Sources */,
 				31B12C041AA2A01400C6B2C9 /* TransitionZoom.swift in Sources */,
@@ -441,6 +475,7 @@
 				31B12BFA1AA2A01400C6B2C9 /* Misc.swift in Sources */,
 				31B12C1B1AA2B0DB00C6B2C9 /* AppDelegate.swift in Sources */,
 				31DBC94C1AB28CEF00B1C693 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				317E69D51AB7FB3500C40FA9 /* MenuControl.swift in Sources */,
 				31B12BBB1AA29F7500C6B2C9 /* AddItemViewController.swift in Sources */,
 				31B12BF31AA2A01400C6B2C9 /* DesignableView.swift in Sources */,
 				31DBC94D1AB28CEF00B1C693 /* TPKeyboardAvoidingTableView.m in Sources */,

@@ -89,7 +89,17 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func showLoad() {
+        view.showLoading()
+    }
+    
+    func hideLoad() {
+        view.hideLoading()
+    }
+    
     @IBAction func doneButtonPressed(sender: AnyObject) {
+        showLoad()
+        
         var nameText = nameTextField.text as String
         var addressText = locationTextField.text as String
         var startTimesText = startTimeTextField.text as String
@@ -130,12 +140,15 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         if self.nameTextField.text == "" {
             var alert = UIAlertView(title:"Oops", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
+            hideLoad()
         } else if self.startTimeTextField.text == "" {
             var alert = UIAlertView(title:"Oops", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
+            hideLoad()
         } else if self.endTimeTextField.text == "" {
             var alert = UIAlertView(title:"Oops", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
+            hideLoad()
         } else {
             events[eventIndex!] = nameText
             currentUser["events"] = events
@@ -153,6 +166,10 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
             
             currentUser.saveInBackground()
         }
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {

@@ -12,6 +12,8 @@ class MakeYourDayViewController: UIViewController {
 
     @IBOutlet weak var makeYourDayButton: UIButton!
     
+    var transitionManager = TransitionManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,10 +24,26 @@ class MakeYourDayViewController: UIViewController {
         makeYourDayButton.layer.cornerRadius = 7
         // Do any additional setup after loading the view.
     }
+    
+    func showload() {
+        view.showLoading()
+    }
+    
+    func hideload() {
+        view.hideLoading()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "dayMade" {
+            showload()
+            let vc = segue.destinationViewController as NavigationViewController
+            vc.transitioningDelegate = transitionManager
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  Prioritize
 //
-//  Created by Kevin Li on 2/7/15.
+//  Created by Nikhil D'Souza on 2/7/15.
 //  Copyright (c) 2015 Nikhil D'Souza. All rights reserved.
 //
 
@@ -29,6 +29,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var refreshControl = UIRefreshControl()
     
+    var transitionManager = TransitionManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser.refresh()
@@ -39,11 +41,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        var name = currentUser["name"] as? String
-        if name! == "" {
-            navigationItem.title = "Your Day"
-        } else {
-            navigationItem.title = "\(name!)'s Day"
+        if let name = currentUser["name"] as? String {
+            if name == "" {
+                navigationItem.title = "Your Day"
+            } else {
+                navigationItem.title = "\(name)'s Day"
+            }
         }
         
         //REFRESHING!
@@ -55,15 +58,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         //NEW EVENT BUBBLE IMAGE!
         newEventBubbleImage.hidden = true
-//        if let events = currentUser["events"] as? [String] {
-//            if events == [] {
-//                newEventBubbleImage.hidden = false
-//                maskView.hidden = false
-//            } else {
-//                newEventBubbleImage.hidden = true
-//                maskView.hidden = true
-//            }
-//        }
     }
     
     func refresh(sender: AnyObject) {
@@ -131,11 +125,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-//    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//        println("You selected cell #\(indexPath.row)!")
-//        performSegueWithIdentifier("ShowDetailSegue", sender: AnyObject?())
-//    }
-    
     @IBAction func menuButtonPressed(sender: AnyObject) {
         if maskView.hidden == true {
             showMenu()
@@ -195,6 +184,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 vc.startTimeIndex = indexPath.row
                 vc.endTimeIndex = indexPath.row
             }
+            vc.transitioningDelegate = transitionManager
+        } else if segue.identifier == "ShowWebSegue" {
+            let vc = segue.destinationViewController as AboutUsWebViewController
+            vc.transitioningDelegate = transitionManager
         }
         
     }

@@ -2,7 +2,7 @@
 //  NavigationViewController.swift
 //  Prioritize
 //
-//  Created by Kevin Li on 2/7/15.
+//  Created by Nikhil D'Souza on 2/7/15.
 //  Copyright (c) 2015 Nikhil D'Souza. All rights reserved.
 //
 

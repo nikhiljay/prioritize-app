@@ -2,7 +2,7 @@
 //  AddItemViewController.swift
 //  Prioritize
 //
-//  Created by Kevin Li on 2/7/15.
+//  Created by Nikhil D'Souza on 2/7/15.
 //  Copyright (c) 2015 Nikhil D'Souza. All rights reserved.
 //
 
@@ -21,6 +21,8 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!], forState: UIControlState.Normal)
 
         doneButton.layer.borderColor = UIColor.whiteColor().CGColor
         doneButton.layer.borderWidth = 2
@@ -38,7 +40,17 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func showLoad() {
+        view.showLoading()
+    }
+    
+    func hideLoad() {
+        view.hideLoading()
+    }
+    
     @IBAction func doneButtonPressed(sender: AnyObject) {
+        showLoad()
+        
         var nameText = nameTextField.text as String
         var addressText = locationTextField.text as String
         var startTimesText = startTimeTextField.text as String
@@ -76,15 +88,18 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
         
         //NIL DID NOT WORK SO I USED ""
-        if self.nameTextField.text == "" {
+        if self.nameTextField.text.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
-        } else if self.startTimeTextField.text == "" {
+            hideLoad()
+        } else if self.startTimeTextField.text.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
-        } else if self.endTimeTextField.text == "" {
+            hideLoad()
+        } else if self.endTimeTextField.text.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
+            hideLoad()
         } else {
             if self.locationTextField.text == "" {
                 var alert = UIAlertView(title:"No address", message:"You did not give the event an address. The event will be added but there will be no map. Edit the event to add an address if needed.", delegate: self, cancelButtonTitle:"Got it!")
@@ -123,18 +138,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        view.endEditing(true)
+    }
+    
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         self.view.endEditing(true);
         return false;
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

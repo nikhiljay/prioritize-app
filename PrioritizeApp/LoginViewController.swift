@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  Prioritize
 //
-//  Created by Kevin Li on 2/7/15.
+//  Created by Nikhil D'Souza on 2/7/15.
 //  Copyright (c) 2015 Nikhil D'Souza. All rights reserved.
 //
 
@@ -39,45 +39,67 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func showLoad() {
+        view.showLoading()
+    }
+    
+    func hideLoad() {
+        view.hideLoading()
+    }
+    
     @IBAction func signUpPressed(sender: AnyObject) {
+        showLoad()
+        
         var username = usernameTextField.text
         var password = passwordTextField.text
         
         var user = PFUser()
         user.username = username
-        user.password=password
+        user.password = password
         
         if self.passwordTextField.text == nil {
             shakeMainView()
             var alert = UIAlertView(title:"Oops!", message:"Password field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
+            hideLoad()
         } else if self.usernameTextField.text == nil {
             shakeMainView()
+            hideLoad()
             var alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
+            hideLoad()
         } else if countElements(password) < 5 {
             shakeMainView()
-            var alert = UIAlertView(title:"Oops!", message:"Too short password!", delegate: self, cancelButtonTitle:"Got it!")
+            var alert = UIAlertView(title:"Oops!", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
+            hideLoad()
         } else {
-            user.signUpInBackgroundWithBlock(nil)
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool!, error: NSError!) -> Void in
+                if error == nil {
+                    self.performSegueWithIdentifier("loggedIn", sender: self)
+                } else {
+                    let errorString = error.userInfo!["error"] as NSString
+                    var alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
+                    alert.show()
+                    self.hideLoad()
+                }
+            }
             
-            var installation: PFInstallation = PFInstallation.currentInstallation()
-            installation.addUniqueObject(["Notifications"], forKey: "channels")
-            installation["user"] = PFUser.currentUser()
-            installation.saveInBackground()
-            
-            self.performSegueWithIdentifier("loggedIn", sender: self)
+//            var installation: PFInstallation = PFInstallation.currentInstallation()
+//            installation.addUniqueObject(["Notifications"], forKey: "channels")
+//            installation["user"] = PFUser.currentUser()
+//            installation.saveInBackground()
         }
     }
     
     @IBAction func loginPressed(sender: AnyObject) {
+        showLoad()
         
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text, block: { (user,error) in
             if error != nil {
                 self.shakeMainView()
-//                var alert = UIAlertView(title: "Oops!", message: "Wrong username or password", delegate: self, cancelButtonTitle: "Got it!")
-//                alert.show()
+                self.hideLoad()
             } else {
                 var installation: PFInstallation = PFInstallation.currentInstallation()
                 installation.addUniqueObject(["Notifications"], forKey: "channels")
@@ -176,8 +198,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    //    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    //        return UIStatusBarStyle.LightContent
-    //    }
 }

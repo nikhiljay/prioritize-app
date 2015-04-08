@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             presentLoginViewController()
         }
         
+        /*
         let userNotificationTypes = (UIUserNotificationType.Alert |
             UIUserNotificationType.Badge |
             UIUserNotificationType.Sound);
@@ -44,10 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
             }
         }
-        
+        */
+
         return true
     }
     
+    /*
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.addUniqueObject("Notifications", forKey: "channels")
@@ -65,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
     }
+    */
     
     func presentLoginViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

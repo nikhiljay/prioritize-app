@@ -30,71 +30,16 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var currentUser = PFUser.currentUser()
     let locationManager = CLLocationManager()
     var userLocation: MKUserLocation!
-    var CLLong: Double!
-    var CLLat: Double!
-    var DestLong: Double!
-    var DestLat: Double!
-    
-    //MAPVIEW SETTING REGION OF VIEW
-    
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        
-//        println(location.coordinate.longitude)
-//        var distance : CLLocationDistance = locationManager.location.distanceFromLocation(location)
-//        println(distance)
-    }
-    
-//    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-//        var latValue = locationManager.location.coordinate.latitude
-//        var lonValue = locationManager.location.coordinate.longitude
-//        let location = CLLocationCoordinate2D(latitude: latValue, longitude: lonValue)
-//        let span = MKCoordinateSpanMake(1, 1)
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        locationMapView.setRegion(region, animated: true)
-//    }
-    
-    
-    //ZOOM TO FIT MAP ANNOTATIONS ATTEMPT 1
-    /*
-    func zoomToFitMapAnnotations() {
-        var annotations = locationMapView.annotations
-        
-        if annotations.count == 0 {return}
-        
-        var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 180)
-        var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -180)
-        
-        var i = 1
-        for object in annotations {
-            if let annotation = object as? MKAnnotation {
-                topLeftCoordinate.longitude = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
-                topLeftCoordinate.latitude = fmin(topLeftCoordinate.latitude, annotation.coordinate.latitude)
-                bottomRightCoordinate.longitude = fmin(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
-                bottomRightCoordinate.latitude = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
-            }
-        }
-        
-        var center = CLLocationCoordinate2D(latitude: topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.5, longitude: topLeftCoordinate.longitude - (topLeftCoordinate.longitude - bottomRightCoordinate.longitude) * 0.5)
-        
-        print("\ncenter:\(center.latitude) \(center.longitude)")
-        // Add a little extra space on the sides
-        var span = MKCoordinateSpanMake(fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 1.01, fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 1.01)
-        print("\nspan:\(span.latitudeDelta) \(span.longitudeDelta)")
-        
-        var region = MKCoordinateRegion(center: center, span: span)
-        
-        region = locationMapView.regionThatFits(region)
-        
-        self.locationMapView.setRegion(region, animated: true)
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println(userLocation)
+        
         appleMapsButton.layer.borderColor = UIColor.whiteColor().CGColor
         appleMapsButton.layer.borderWidth = 1
         appleMapsButton.layer.cornerRadius = 7
-        
+
         //EVENT TITLE
         let event = currentUser["events"]![eventIndex!] as String
         var eventTitle = "No Event Title"
@@ -171,19 +116,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         })
         
-        //TO GET CURRENT LOCATION COORDINATES!
-//        var locManager = CLLocationManager()
-//        locManager.requestWhenInUseAuthorization()
-//        
-//        var currentLocation = CLLocation()
-//        
-//        if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized) {
-//            currentLocation = locManager.location
-//            CLLong = currentLocation.coordinate.longitude
-//            CLLat = currentLocation.coordinate.latitude
-//        }
         let currentLocation = MKMapItem.mapItemForCurrentLocation()
-
         geocoder.geocodeAddressString(geocodeAddress, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
             if let placemark = placemarks?[0] as? CLPlacemark {
                 let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
@@ -201,8 +134,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 //FIND THE DISTANCE BETWEEN POINT A (currentlocation) AND POINT B (endPoint)
             }
         })
-        
-        
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -252,8 +183,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 MKMapItem.openMapsWithItems(array, launchOptions: parameter)
             }
         })
-        
-        
     }
     
     func displayLocationInfo(placemark: CLPlacemark) {
@@ -265,15 +194,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //        println(placemark.postalCode)
 //        println(placemark.administrativeArea)
 //        println(placemark.country)
+        println(placemark.location.coordinate.longitude)
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Error: " + error.localizedDescription)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

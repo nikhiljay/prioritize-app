@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     var currentUser = PFUser.currentUser()
     
+    var transitionManager = TransitionManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,10 +60,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    func load() {
+        view.showLoading()
+    }
+    
     @IBAction func donePressed(sender: AnyObject) {
+        load()
+        
         currentUser["name"] = nameTextField.text
         
-        self.performSegueWithIdentifier("finishedEditing", sender: self)
+        self.performSegueWithIdentifier("finishedSettings", sender: self)
         
         currentUser.saveInBackground()
     }
@@ -82,12 +90,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func deleteAccountButtonPressed(sender: AnyObject) {
-        //self.performSegueWithIdentifier("accountDeleted", sender: self)
+        var alert = UIAlertController(title: "Are you sure?", message: "This will permanently delete your account.", preferredStyle: UIAlertControllerStyle.Alert)
+        let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
+        let actionRight = UIAlertAction(title: "Yes", style: .Destructive) { action in
+            self.currentUser.deleteInBackground()
+            self.performSegueWithIdentifier("accountDeleted", sender: self)
+        }
+        alert.addAction(actionLeft)
+        alert.addAction(actionRight)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
