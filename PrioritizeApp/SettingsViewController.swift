@@ -74,6 +74,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         currentUser.saveInBackground()
     }
     
+    //FOR DELETING ALL EVENTS!!!
     @IBAction func deleteAllButtonPressed(sender: AnyObject) {
         var alert = UIAlertController(title: "Are you sure?", message: "This will delete all your events permanently from your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
@@ -89,6 +90,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    //FOR DELETING ACCOUNT!!!
     @IBAction func deleteAccountButtonPressed(sender: AnyObject) {
         var alert = UIAlertController(title: "Are you sure?", message: "This will permanently delete your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
