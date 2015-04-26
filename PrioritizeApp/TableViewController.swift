@@ -34,6 +34,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser.refresh()
+        
+        if !LocalStore.isIntroVisited() {
+            performSegueWithIdentifier("IntroSegue", sender: self)
+            LocalStore.setIntroAsVisited()
+        }
 
         //insertBlurView(maskView, UIBlurEffectStyle.Dark)
         menuView.hidden = true
@@ -114,7 +119,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! UITableViewCell
         
         cell.backgroundColor = UIColor.clearColor()
         
@@ -163,7 +168,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func presentLoginViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as UINavigationController
+        let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
         
         self.presentViewController(vc, animated: false, completion: nil)
         
@@ -177,7 +182,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         endTimes = currentUser["endTimes"] as? [String]
         
         if segue.identifier == "ShowDetailSegue" {
-            let vc = segue.destinationViewController as DetailViewController
+            let vc = segue.destinationViewController as! DetailViewController
             if let indexPath = tableView.indexPathForSelectedRow() {
                 vc.eventIndex = indexPath.row
                 vc.addressIndex = indexPath.row
@@ -186,7 +191,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             vc.transitioningDelegate = transitionManager
         } else if segue.identifier == "ShowWebSegue" {
-            let vc = segue.destinationViewController as AboutUsWebViewController
+            let vc = segue.destinationViewController as! AboutUsWebViewController
             vc.transitioningDelegate = transitionManager
         }
         

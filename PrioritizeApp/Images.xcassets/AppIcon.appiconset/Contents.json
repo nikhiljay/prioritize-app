@@ -137,6 +137,7 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
+      "filename" : "Icon-29@3x-1.png",
       "role" : "companionSettings",
       "scale" : "3x"
     },
@@ -189,13 +190,6 @@
       "unassigned" : true,
       "role" : "notificationCenter",
       "subtype" : "42mm"
-    },
-    {
-      "idiom" : "watch",
-      "filename" : "Icon-29@3x-1.png",
-      "unassigned" : true,
-      "role" : "companionSettings",
-      "scale" : "3x"
     }
   ],
   "info" : {

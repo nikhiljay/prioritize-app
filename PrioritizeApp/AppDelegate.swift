@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentLoginViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as UINavigationController
+        let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
         
         self.window?.rootViewController?.presentViewController(vc, animated: false, completion: nil)
         

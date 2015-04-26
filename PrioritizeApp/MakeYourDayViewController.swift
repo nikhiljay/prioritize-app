@@ -41,7 +41,7 @@ class MakeYourDayViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "dayMade" {
             showload()
-            let vc = segue.destinationViewController as NavigationViewController
+            let vc = segue.destinationViewController as! NavigationViewController
             vc.transitioningDelegate = transitionManager
         }
     }

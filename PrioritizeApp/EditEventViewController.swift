@@ -38,7 +38,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         //SET TEXT FIELD TEXT AS CREATED TEXT
         
         //EVENT TITLE
-        let event = currentUser["events"]![eventIndex!] as String
+        let event = currentUser["events"]![eventIndex!] as! String
         var eventTitle = "No Event Title"
         
         if let events = currentUser["events"] as? [String] {
@@ -49,7 +49,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         nameTextField.text = eventTitle
         
         //ADDRESS TITLE
-        let address = currentUser["addresses"]![addressIndex!] as String
+        let address = currentUser["addresses"]![addressIndex!] as! String
         var addressTitle = "No Address"
         
         if let addresses = currentUser["addresses"] as? [String] {
@@ -60,7 +60,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         locationTextField.text = addressTitle
         
         //END TIME TITLE
-        let endTime = currentUser["endTimes"]![endTimeIndex!] as String
+        let endTime = currentUser["endTimes"]![endTimeIndex!] as! String
         var endTimeTitle = "No End Time"
         
         if let endTimes = currentUser["endTimes"] as? [String] {
@@ -71,7 +71,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         endTimeTextField.text = endTimeTitle
         
         //START TIME TITLE
-        let startTime = currentUser["startTimes"]![startTimeIndex!] as String
+        let startTime = currentUser["startTimes"]![startTimeIndex!] as! String
         var startTimeTitle = "No Start Time"
         
         if let startTimes = currentUser["startTimes"] as? [String] {
@@ -168,11 +168,11 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true);
         return false;
     }

@@ -68,18 +68,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if countElements(password) < 5 {
+        } else if count(password) < 5 {
             shakeMainView()
             var alert = UIAlertView(title:"Oops!", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else {
             user.signUpInBackgroundWithBlock {
-                (succeeded: Bool!, error: NSError!) -> Void in
+                (succeeded: Bool, error: NSError?) -> Void in
                 if error == nil {
                     self.performSegueWithIdentifier("loggedIn", sender: self)
                 } else {
-                    let errorString = error.userInfo!["error"] as NSString
+                    let errorString = error!.userInfo!["error"] as! String
                     var alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
                     alert.show()
                     self.hideLoad()
@@ -139,7 +139,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         usernameTextField.resignFirstResponder()
         emailImageView.image = UIImage(named: "icon-mail")
         passwordTextField.resignFirstResponder()
@@ -148,7 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         emailImageView.image = UIImage(named: "icon-mail")
         passwordImageView.image = UIImage(named: "icon-password")
         view.endEditing(true)

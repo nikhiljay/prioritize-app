@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,10 +10,23 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44y-QD-oLY" customClass="DesignableView" customModule="Prioritize" customModuleProvider="target">
+                    <rect key="frame" x="250" y="250" width="100" height="100"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="6eH-9P-dcm"/>
+                        <constraint firstAttribute="width" constant="100" id="fCa-X3-lxq"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19J-d9-rcw" customClass="SpringView" customModule="Prioritize" customModuleProvider="target">
                     <rect key="frame" x="275" y="275" width="50" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading Clock" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-jP-Opi">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-jP-Opi">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="Dtw-Z1-4UD"/>
@@ -32,8 +45,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="44y-QD-oLY" secondAttribute="centerY" id="1dM-g5-5up"/>
                 <constraint firstAttribute="centerY" secondItem="19J-d9-rcw" secondAttribute="centerY" id="DlX-dJ-y4A"/>
                 <constraint firstAttribute="centerX" secondItem="19J-d9-rcw" secondAttribute="centerX" id="iTf-dQ-2Ho"/>
+                <constraint firstAttribute="centerX" secondItem="44y-QD-oLY" secondAttribute="centerX" id="uOs-DO-K5J"/>
             </constraints>
             <connections>
                 <outlet property="indicatorView" destination="19J-d9-rcw" id="WZZ-6H-whz"/>
@@ -41,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Loading Clock" width="89" height="89"/>
+        <image name="loading" width="36" height="36"/>
     </resources>
 </document>
