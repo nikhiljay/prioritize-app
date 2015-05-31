@@ -136,8 +136,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         })
         
-        let distance = userLocation.distanceFromLocation(destinationLocation)
-        println(distance)
+//        let distance = userLocation.distanceFromLocation(destinationLocation)
+//        println(distance)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
