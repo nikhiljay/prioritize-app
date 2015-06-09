@@ -38,7 +38,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         //SET TEXT FIELD TEXT AS CREATED TEXT
         
         //EVENT TITLE
-        let event = currentUser["events"]![eventIndex!] as! String
+        let event = (currentUser["events"] as! [String])[eventIndex!]
         var eventTitle = "No Event Title"
         
         if let events = currentUser["events"] as? [String] {
@@ -49,7 +49,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         nameTextField.text = eventTitle
         
         //ADDRESS TITLE
-        let address = currentUser["addresses"]![addressIndex!] as! String
+        let address = (currentUser["addresses"]as! [String])[addressIndex!]
         var addressTitle = "No Address"
         
         if let addresses = currentUser["addresses"] as? [String] {
@@ -60,7 +60,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         locationTextField.text = addressTitle
         
         //END TIME TITLE
-        let endTime = currentUser["endTimes"]![endTimeIndex!] as! String
+        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
         var endTimeTitle = "No End Time"
         
         if let endTimes = currentUser["endTimes"] as? [String] {
@@ -71,7 +71,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         endTimeTextField.text = endTimeTitle
         
         //START TIME TITLE
-        let startTime = currentUser["startTimes"]![startTimeIndex!] as! String
+        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
         var startTimeTitle = "No Start Time"
         
         if let startTimes = currentUser["startTimes"] as? [String] {
@@ -100,10 +100,10 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(sender: AnyObject) {
         showLoad()
         
-        var nameText = nameTextField.text as String
-        var addressText = locationTextField.text as String
-        var startTimesText = startTimeTextField.text as String
-        var endTimesText = endTimeTextField.text as String
+        var nameText = nameTextField.text!
+        var addressText = locationTextField.text!
+        var startTimesText = startTimeTextField.text!
+        var endTimesText = endTimeTextField.text!
         
         var currentUser = PFUser.currentUser()
         
@@ -168,7 +168,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
     

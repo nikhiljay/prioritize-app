@@ -119,7 +119,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.backgroundColor = UIColor.clearColor()
         
@@ -183,7 +183,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if segue.identifier == "ShowDetailSegue" {
             let vc = segue.destinationViewController as! DetailViewController
-            if let indexPath = tableView.indexPathForSelectedRow() {
+            if let indexPath = tableView.indexPathForSelectedRow {
                 vc.eventIndex = indexPath.row
                 vc.addressIndex = indexPath.row
                 vc.startTimeIndex = indexPath.row

@@ -68,7 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if count(password) < 5 {
+        } else if password!.characters.count < 5 {
             shakeMainView()
             var alert = UIAlertView(title:"Oops!", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
@@ -79,7 +79,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     self.performSegueWithIdentifier("loggedIn", sender: self)
                 } else {
-                    let errorString = error!.userInfo!["error"] as! String
+                    let errorString = error!.userInfo["error"] as! String
                     var alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
                     alert.show()
                     self.hideLoad()
@@ -101,7 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.shakeMainView()
                 self.hideLoad()
             } else {
-                var installation: PFInstallation = PFInstallation.currentInstallation()
+                let installation: PFInstallation = PFInstallation.currentInstallation()
                 installation.addUniqueObject(["Notifications"], forKey: "channels")
                 installation["user"] = PFUser.currentUser()
                 installation.saveInBackground()
@@ -148,7 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         emailImageView.image = UIImage(named: "icon-mail")
         passwordImageView.image = UIImage(named: "icon-password")
         view.endEditing(true)

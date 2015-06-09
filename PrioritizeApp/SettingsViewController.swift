@@ -52,11 +52,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func notificationSettingResult() {
         if notificationSwitch.on == true {
             currentUser["notifications"] = true
-            println(currentUser["notifications"])
+            print(currentUser["notifications"])
         }
         else {
             currentUser["notifications"] = false
-            println(currentUser["notifications"])
+            print(currentUser["notifications"])
         }
     }
 
@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //FOR DELETING ALL EVENTS!!!
     @IBAction func deleteAllButtonPressed(sender: AnyObject) {
-        var alert = UIAlertController(title: "Are you sure?", message: "This will delete all your events permanently from your account.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "This will delete all your events permanently from your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
         let actionRight = UIAlertAction(title: "Yes", style: .Default) { action in
             self.currentUser["events"] = []
@@ -92,7 +92,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //FOR DELETING ACCOUNT!!!
     @IBAction func deleteAccountButtonPressed(sender: AnyObject) {
-        var alert = UIAlertController(title: "Are you sure?", message: "This will permanently delete your account.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "This will permanently delete your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
         let actionRight = UIAlertAction(title: "Yes", style: .Destructive) { action in
             self.currentUser.deleteInBackground()
@@ -108,7 +108,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
     

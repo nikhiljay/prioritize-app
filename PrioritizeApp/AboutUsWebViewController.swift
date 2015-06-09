@@ -34,8 +34,8 @@ class AboutUsWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        var shareString = self.shareTitle ?? ""
-        var shareURL = self.url
+        let shareString = self.shareTitle ?? ""
+        let shareURL = self.url
         let activityViewController = UIActivityViewController(activityItems: ["Look at Nikhil D'Souza's website at:", shareURL], applicationActivities: nil)
         activityViewController.setValue(shareString, forKey: "subject")
         presentViewController(activityViewController, animated: true, completion: nil)

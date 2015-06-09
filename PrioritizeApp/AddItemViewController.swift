@@ -51,10 +51,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(sender: AnyObject) {
         showLoad()
         
-        var nameText = nameTextField.text as String
-        var addressText = locationTextField.text as String
-        var startTimesText = startTimeTextField.text as String
-        var endTimesText = endTimeTextField.text as String
+        var nameText = nameTextField.text!
+        var addressText = locationTextField.text!
+        var startTimesText = startTimeTextField.text!
+        var endTimesText = endTimeTextField.text!
         
         var currentUser = PFUser.currentUser()
         
@@ -88,15 +88,15 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
         
         //NIL DID NOT WORK SO I USED ""
-        if self.nameTextField.text.isEmpty == true {
+        if self.nameTextField.text!.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if self.startTimeTextField.text.isEmpty == true {
+        } else if self.startTimeTextField.text!.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if self.endTimeTextField.text.isEmpty == true {
+        } else if self.endTimeTextField.text!.isEmpty == true {
             var alert = UIAlertView(title:"Oops!", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
@@ -138,7 +138,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
     

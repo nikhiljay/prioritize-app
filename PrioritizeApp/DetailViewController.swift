@@ -34,14 +34,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println(userLocation)
+        print(userLocation)
         
         appleMapsButton.layer.borderColor = UIColor.whiteColor().CGColor
         appleMapsButton.layer.borderWidth = 1
         appleMapsButton.layer.cornerRadius = 7
 
         //EVENT TITLE
-        let event = currentUser["events"]![eventIndex!] as! String
+//        let event = (currentUser["events"]as! [String])[eventIndex!]
         var eventTitle = "No Event Title"
         
         if let events = currentUser["events"] as? [String] {
@@ -52,7 +52,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
 
         //ADDRESS TITLE
-        let address = currentUser["addresses"]![addressIndex!] as! String
+        let address = (currentUser["addresses"]as! [String])[addressIndex!]
         var addressTitle = "No Address"
         
         if let addresses = currentUser["addresses"] as? [String] {
@@ -65,7 +65,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         }
         //END TIME TITLE
-        let endTime = currentUser["endTimes"]![endTimeIndex!] as! String
+        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
         var endTimeTitle = "No End Time"
         
         if let endTimes = currentUser["endTimes"] as? [String] {
@@ -74,7 +74,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         }
         //START TIME TITLE
-        let startTime = currentUser["startTimes"]![startTimeIndex!] as! String
+        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
         var startTimeTitle = "No Start Time"
         
         if let startTimes = currentUser["startTime"] as? [String] {
@@ -110,15 +110,15 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         //GEOCODING OF POINT B!
         var geocodeAddress = addressTitle
         var geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-            if let placemark = placemarks?[0] as? CLPlacemark {
+        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if let placemark = placemarks?[0] {
                 self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
             }
         })
         
         let currentLocation = MKMapItem.mapItemForCurrentLocation()
-        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-            if let placemark = placemarks?[0] as? CLPlacemark {
+        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if let placemark = placemarks?[0] {
                 let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
                 self.userLocation = currentLocation.placemark.location
                 
@@ -140,17 +140,17 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //        println(distance)
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
             if (error != nil) {
-                println("Error: " + error.localizedDescription)
+                print("Error: " + error!.localizedDescription)
                 return
             }
-            if placemarks.count > 0 {
-                let pm = placemarks[0] as! CLPlacemark
+            if placemarks!.count > 0 {
+                let pm = placemarks![0] as CLPlacemark
                 self.displayLocationInfo(pm)
             } else {
-                println("Error with the data.")
+                print("Error with the data.")
             }
         })
     }
@@ -158,7 +158,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBAction func openInAppleMaps(sender: AnyObject) {
         let currentLocation = MKMapItem.mapItemForCurrentLocation()
         
-        let address = currentUser["addresses"]![addressIndex!] as! String
+        let address = (currentUser["addresses"] as! [String])[addressIndex!]
         var addressTitle = "No Address"
         
         if let addresses = currentUser["addresses"] as? [String] {
@@ -172,8 +172,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         var geocodeAddress = addressTitle
         var geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-            if let placemark = placemarks?[0] as? CLPlacemark {
+        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if let placemark = placemarks![0] as? CLPlacemark {
                 let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
                 
                 let location = MKMapItem(placemark: markLocation)
@@ -184,7 +184,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 
                 let parameter = NSDictionary(object: MKLaunchOptionsDirectionsModeDriving, forKey: MKLaunchOptionsDirectionsModeKey)
                 
-                MKMapItem.openMapsWithItems(array as [AnyObject], launchOptions: parameter as [NSObject : AnyObject])
+                MKMapItem.openMapsWithItems(array as! [MKMapItem], launchOptions: parameter as! [String : AnyObject])
             }
         })
     }
@@ -198,11 +198,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //        println(placemark.postalCode)
 //        println(placemark.administrativeArea)
 //        println(placemark.country)
-        println(placemark.location.coordinate.longitude)
+        print(placemark.location.coordinate.longitude)
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error: " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: " + error.localizedDescription)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

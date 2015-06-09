@@ -35,7 +35,7 @@ public class DragDropBehavior : NSObject {
     private var animator : UIDynamicAnimator!
     private var attachmentBehavior : UIAttachmentBehavior!
     private var gravityBehaviour : UIGravityBehavior!
-    private var snapBehavior : UISnapBehavior!
+    private var snapBehavior : UISnapBehavior?
     public private(set) var panGestureRecognizer : UIPanGestureRecognizer!
 
     func handleGesture(sender: AnyObject) {
@@ -43,7 +43,9 @@ public class DragDropBehavior : NSObject {
         let boxLocation = sender.locationInView(targetView)
 
         if sender.state == UIGestureRecognizerState.Began {
-            animator.removeBehavior(snapBehavior)
+            if let previousBehavior = snapBehavior {
+                animator.removeBehavior(previousBehavior)
+            }
 
             let centerOffset = UIOffsetMake(boxLocation.x - CGRectGetMidX(targetView.bounds), boxLocation.y - CGRectGetMidY(targetView.bounds));
             attachmentBehavior = UIAttachmentBehavior(item: targetView, offsetFromCenter: centerOffset, attachedToAnchor: location)
@@ -57,14 +59,15 @@ public class DragDropBehavior : NSObject {
         else if sender.state == UIGestureRecognizerState.Ended {
             animator.removeBehavior(attachmentBehavior)
 
-            snapBehavior = UISnapBehavior(item: targetView, snapToPoint: referenceView.center)
-            animator.addBehavior(snapBehavior)
+            let newBehavior = UISnapBehavior(item: targetView, snapToPoint: referenceView.center)
+            animator.addBehavior(newBehavior)
+            snapBehavior = newBehavior
 
             let translation = sender.translationInView(referenceView)
             if translation.y > 100 {
                 animator.removeAllBehaviors()
 
-                var gravity = UIGravityBehavior(items: [targetView])
+                let gravity = UIGravityBehavior(items: [targetView])
                 gravity.gravityDirection = CGVectorMake(0, 10)
                 animator.addBehavior(gravity)
 
