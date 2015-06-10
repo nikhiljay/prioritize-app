@@ -44,22 +44,22 @@
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
             <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
         </mutableArray>
@@ -379,7 +379,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yGe-3J-ong" kind="push" id="lxf-WD-dsa"/>
+                                            <segue destination="yGe-3J-ong" kind="show" id="lxf-WD-dsa"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ta-v2-0K2">
@@ -599,12 +599,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-2B-fOb">
-                                <rect key="frame" x="16" y="145" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-2B-fOb">
+                                <rect key="frame" x="16" y="141" width="288" height="30"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXt-DC-Fik">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXt-DC-Fik">
                                 <rect key="frame" x="100" y="479" width="120" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="ANJ-aN-BwG"/>
@@ -620,58 +620,43 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="roq-wL-bLK">
-                                <rect key="frame" x="16" y="273" width="126" height="30"/>
+                                <rect key="frame" x="16" y="265" width="126" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="5GO-88-Btz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-eh-0gk">
-                                <rect key="frame" x="178" y="273" width="126" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-eh-0gk">
+                                <rect key="frame" x="178" y="265" width="126" height="30"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8YI-9A-mU8">
-                                <rect key="frame" x="16" y="401" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8YI-9A-mU8">
+                                <rect key="frame" x="16" y="389" width="288" height="30"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibz-ah-cad">
-                                <rect key="frame" x="16" y="364" width="126" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibz-ah-cad">
+                                <rect key="frame" x="16" y="356" width="121" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clt-Qn-wFn">
-                                <rect key="frame" x="16" y="108" width="102" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clt-Qn-wFn">
+                                <rect key="frame" x="16" y="108" width="100" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-BM-D86">
-                                <rect key="frame" x="16" y="236" width="102" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-BM-D86">
+                                <rect key="frame" x="16" y="232" width="99" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4392156862745098" green="0.67450980392156867" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="roq-wL-bLK" firstAttribute="top" secondItem="6aK-BM-D86" secondAttribute="bottom" constant="8" id="1Ar-Eb-vOt"/>
-                            <constraint firstItem="roq-wL-bLK" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="4Fd-wW-Sce"/>
-                            <constraint firstAttribute="centerX" secondItem="KXt-DC-Fik" secondAttribute="centerX" id="6w7-KK-pq6"/>
-                            <constraint firstAttribute="trailing" secondItem="8YI-9A-mU8" secondAttribute="trailing" constant="16" id="Akb-wt-ZI6"/>
-                            <constraint firstItem="Bzf-2B-fOb" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="ArD-L3-HQ0"/>
-                            <constraint firstItem="f2t-eh-0gk" firstAttribute="width" secondItem="roq-wL-bLK" secondAttribute="width" id="JMS-p6-0l1"/>
-                            <constraint firstItem="clt-Qn-wFn" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="LT4-TI-ySq"/>
-                            <constraint firstItem="nr7-HQ-uzp" firstAttribute="top" secondItem="KXt-DC-Fik" secondAttribute="bottom" constant="48" id="MMh-N0-qSM"/>
-                            <constraint firstItem="8YI-9A-mU8" firstAttribute="top" secondItem="Ibz-ah-cad" secondAttribute="bottom" constant="8" id="ROP-dg-Y1w"/>
-                            <constraint firstAttribute="trailing" secondItem="f2t-eh-0gk" secondAttribute="trailing" constant="16" id="ake-Um-yQp"/>
-                            <constraint firstItem="Ibz-ah-cad" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="bFZ-v4-Xhf"/>
-                            <constraint firstAttribute="trailing" secondItem="Bzf-2B-fOb" secondAttribute="trailing" constant="16" id="drS-kS-iA5"/>
-                            <constraint firstItem="f2t-eh-0gk" firstAttribute="leading" secondItem="roq-wL-bLK" secondAttribute="trailing" constant="36" id="fDp-lh-mxv"/>
-                            <constraint firstItem="6aK-BM-D86" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="fXL-Pv-uVg"/>
-                            <constraint firstItem="Bzf-2B-fOb" firstAttribute="top" secondItem="clt-Qn-wFn" secondAttribute="bottom" constant="8" id="kH4-ZF-qep"/>
-                            <constraint firstItem="8YI-9A-mU8" firstAttribute="leading" secondItem="hFb-1i-99V" secondAttribute="leading" constant="16" id="l6e-7R-9rk"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add an Event" id="66E-WY-Wuh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -740,7 +725,7 @@
                                 <connections>
                                     <action selector="deleteAccountButtonPressed:" destination="yGe-3J-ong" eventType="touchUpInside" id="4BF-LO-D1n"/>
                                     <action selector="doneButtonPressed:" destination="GKp-hU-nA7" eventType="touchUpInside" id="mfh-QV-lBw"/>
-                                    <segue destination="Bns-rc-jl1" kind="modal" identifier="accountDeleted" modalTransitionStyle="flipHorizontal" id="DMY-IZ-nZt"/>
+                                    <segue destination="Bns-rc-jl1" kind="presentation" identifier="accountDeleted" modalTransitionStyle="flipHorizontal" id="DMY-IZ-nZt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCI-Ps-wJB">
@@ -1139,83 +1124,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-Ll-PTH">
-                                <rect key="frame" x="16" y="145" width="288" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Bq-PFI">
-                                <rect key="frame" x="100" y="479" width="120" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="F6T-Hb-GZl"/>
-                                    <constraint firstAttribute="width" constant="120" id="Z4G-dX-3sG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneButtonPressed:" destination="GKp-hU-nA7" eventType="touchUpInside" id="xe7-qY-93k"/>
-                                    <segue destination="e4Y-Ty-TkQ" kind="presentation" identifier="finishedEditing" modalTransitionStyle="crossDissolve" id="cLD-QP-O6k"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZZx-8c-X22">
-                                <rect key="frame" x="16" y="273" width="126" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-AT-3Js">
-                                <rect key="frame" x="178" y="273" width="126" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Pn-xx-Ykk">
-                                <rect key="frame" x="16" y="401" width="288" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg0-98-sIN">
-                                <rect key="frame" x="16" y="364" width="126" height="29"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As7-NH-WpW">
-                                <rect key="frame" x="16" y="236" width="102" height="29"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Bh-gO0">
-                                <rect key="frame" x="16" y="108" width="102" height="29"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TpC-Pl-V5w" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-Ll-PTH">
+                                        <rect key="frame" x="16" y="88" width="288" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZZx-8c-X22">
+                                        <rect key="frame" x="16" y="214" width="126" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-AT-3Js">
+                                        <rect key="frame" x="178" y="214" width="126" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Pn-xx-Ykk">
+                                        <rect key="frame" x="16" y="345" width="288" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg0-98-sIN">
+                                        <rect key="frame" x="16" y="308" width="126" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As7-NH-WpW">
+                                        <rect key="frame" x="16" y="179" width="102" height="27"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Bh-gO0">
+                                        <rect key="frame" x="16" y="51" width="102" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Bq-PFI">
+                                        <rect key="frame" x="100" y="463" width="120" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="GKp-hU-nA7" eventType="touchUpInside" id="xe7-qY-93k"/>
+                                            <segue destination="e4Y-Ty-TkQ" kind="presentation" identifier="finishedEditing" modalTransitionStyle="crossDissolve" id="cLD-QP-O6k"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.67450980390000004" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="VJf-U5-8g3" firstAttribute="top" secondItem="uod-Bq-PFI" secondAttribute="bottom" constant="48" id="6yS-pG-BCb"/>
-                            <constraint firstItem="As7-NH-WpW" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="84p-Yr-ice"/>
-                            <constraint firstAttribute="centerX" secondItem="uod-Bq-PFI" secondAttribute="centerX" id="90P-lQ-bVc"/>
-                            <constraint firstAttribute="trailing" secondItem="6eF-Ll-PTH" secondAttribute="trailing" constant="16" id="FjX-VN-08J"/>
-                            <constraint firstItem="9tI-AT-3Js" firstAttribute="width" secondItem="ZZx-8c-X22" secondAttribute="width" id="IXu-jp-cHf"/>
-                            <constraint firstItem="6eF-Ll-PTH" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="KTA-2d-MQV"/>
-                            <constraint firstItem="5Pn-xx-Ykk" firstAttribute="top" secondItem="sg0-98-sIN" secondAttribute="bottom" constant="8" id="M42-p8-kWQ"/>
-                            <constraint firstItem="9tI-AT-3Js" firstAttribute="leading" secondItem="ZZx-8c-X22" secondAttribute="trailing" constant="36" id="NVD-8P-u7s"/>
-                            <constraint firstItem="5Pn-xx-Ykk" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="VKt-ic-VDt"/>
-                            <constraint firstItem="6eF-Ll-PTH" firstAttribute="top" secondItem="3BY-Bh-gO0" secondAttribute="bottom" constant="8" id="Yyt-Ei-Jhx"/>
-                            <constraint firstItem="3BY-Bh-gO0" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="Z73-od-w9b"/>
-                            <constraint firstItem="ZZx-8c-X22" firstAttribute="top" secondItem="As7-NH-WpW" secondAttribute="bottom" constant="8" id="aLb-Vl-sKx"/>
-                            <constraint firstItem="sg0-98-sIN" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="c48-IK-hpd"/>
-                            <constraint firstAttribute="trailing" secondItem="5Pn-xx-Ykk" secondAttribute="trailing" constant="16" id="l8A-gP-Pdt"/>
-                            <constraint firstAttribute="trailing" secondItem="9tI-AT-3Js" secondAttribute="trailing" constant="16" id="ouD-9Y-DN3"/>
-                            <constraint firstItem="ZZx-8c-X22" firstAttribute="leading" secondItem="uF0-g0-G1m" secondAttribute="leading" constant="16" id="zzr-Kx-fPx"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Event" id="Twc-he-JJs"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="doneButton" destination="uod-Bq-PFI" id="XgX-7n-pHr"/>
                         <outlet property="endTimeTextField" destination="9tI-AT-3Js" id="xWC-2l-MPu"/>
@@ -1481,13 +1450,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no map because no address was given." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK8-SD-K8Y">
-                                <rect key="frame" x="20" y="202" width="280" height="41"/>
+                                <rect key="frame" x="20" y="209" width="280" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsX-ER-Jpp">
-                                <rect key="frame" x="16" y="101" width="288" height="241.5"/>
+                                <rect key="frame" x="16" y="101" width="288" height="255"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="189" id="rwv-hg-9Gz"/>
                                 </constraints>
@@ -1498,26 +1467,20 @@
                                 </variation>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYa-g1-Iew">
-                                <rect key="frame" x="71" y="395" width="55" height="27.5"/>
+                                <rect key="frame" x="71" y="408" width="55" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFt-VE-pV1">
-                                <rect key="frame" x="151" y="395" width="19" height="27.5"/>
+                                <rect key="frame" x="151" y="408" width="19" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4n-HP-gqf">
-                                <rect key="frame" x="195" y="395" width="55" height="27.5"/>
+                                <rect key="frame" x="195" y="408" width="55" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx7-Pe-y1o">
-                                <rect key="frame" x="180" y="474" width="73" height="27.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1538,26 +1501,32 @@
                                     <action selector="openInAppleMaps:" destination="kV4-Al-zwI" eventType="touchUpInside" id="vrV-Xj-oci"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYL-mn-zGk">
-                                <rect key="frame" x="86" y="475" width="54" height="27.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t74-Y3-Rew">
-                                <rect key="frame" x="148" y="475" width="24.5" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t74-Y3-Rew">
+                                <rect key="frame" x="145" y="482.5" width="30.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driving should take" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-e0-M0A">
-                                <rect key="frame" x="72" y="444" width="177" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This event is" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-e0-M0A">
+                                <rect key="frame" x="105" y="456" width="111.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled from" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpF-8Z-eJX">
-                                <rect key="frame" x="87" y="364" width="146" height="27.5"/>
+                                <rect key="frame" x="87" y="377" width="146" height="27.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYL-mn-zGk">
+                                <rect key="frame" x="82" y="484" width="54" height="27.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miles away" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx7-Pe-y1o">
+                                <rect key="frame" x="184" y="484" width="99.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1569,9 +1538,9 @@
                             <constraint firstItem="YsX-ER-Jpp" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="3SZ-hB-Ur9"/>
                             <constraint firstAttribute="trailing" secondItem="YsX-ER-Jpp" secondAttribute="trailing" constant="16" id="8Rx-U0-wop"/>
                             <constraint firstItem="zFt-VE-pV1" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="96C-1H-m1y"/>
-                            <constraint firstItem="t74-Y3-Rew" firstAttribute="leading" secondItem="IYL-mn-zGk" secondAttribute="trailing" constant="8" id="AGO-ko-XoB"/>
+                            <constraint firstItem="t74-Y3-Rew" firstAttribute="leading" secondItem="IYL-mn-zGk" secondAttribute="trailing" constant="9" id="AGO-ko-XoB"/>
                             <constraint firstItem="m4n-HP-gqf" firstAttribute="top" secondItem="TpF-8Z-eJX" secondAttribute="bottom" constant="4" id="Fdl-6W-gvZ"/>
-                            <constraint firstItem="YNh-aZ-dwl" firstAttribute="top" secondItem="t74-Y3-Rew" secondAttribute="bottom" constant="17" id="GQs-7b-bo3"/>
+                            <constraint firstItem="YNh-aZ-dwl" firstAttribute="top" secondItem="t74-Y3-Rew" secondAttribute="bottom" constant="10" id="GQs-7b-bo3"/>
                             <constraint firstItem="YsX-ER-Jpp" firstAttribute="top" secondItem="js5-BM-3Hi" secondAttribute="bottom" constant="18" id="JPr-eX-QTD"/>
                             <constraint firstItem="RK8-SD-K8Y" firstAttribute="centerX" secondItem="YsX-ER-Jpp" secondAttribute="centerX" id="Jc6-FM-epf"/>
                             <constraint firstItem="Q7a-e0-M0A" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="KKi-B3-vTv"/>
@@ -1582,21 +1551,21 @@
                             <constraint firstItem="js5-BM-3Hi" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="P4L-jX-ZsQ"/>
                             <constraint firstItem="zFt-VE-pV1" firstAttribute="top" secondItem="TpF-8Z-eJX" secondAttribute="bottom" constant="4" id="PeW-RF-Xxa"/>
                             <constraint firstItem="js5-BM-3Hi" firstAttribute="top" secondItem="i24-nh-bKe" secondAttribute="bottom" constant="21" id="QKA-3T-rlK"/>
-                            <constraint firstItem="RK8-SD-K8Y" firstAttribute="centerY" secondItem="YsX-ER-Jpp" secondAttribute="centerY" id="UV2-Ai-vfz"/>
+                            <constraint firstItem="RK8-SD-K8Y" firstAttribute="centerY" secondItem="YsX-ER-Jpp" secondAttribute="centerY" constant="1" id="UV2-Ai-vfz"/>
                             <constraint firstItem="Q7a-e0-M0A" firstAttribute="top" secondItem="zFt-VE-pV1" secondAttribute="bottom" constant="21" id="WLH-Vc-CIW"/>
                             <constraint firstItem="js5-BM-3Hi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NSd-Ki-L2a" secondAttribute="leadingMargin" constant="8" id="X2o-NW-czZ"/>
                             <constraint firstItem="zFt-VE-pV1" firstAttribute="leading" secondItem="zYa-g1-Iew" secondAttribute="trailing" constant="25" id="Xve-N8-A2z"/>
-                            <constraint firstItem="t74-Y3-Rew" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="4" id="dEd-xe-ch0"/>
+                            <constraint firstItem="t74-Y3-Rew" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="-1" id="dEd-xe-ch0"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="js5-BM-3Hi" secondAttribute="trailing" constant="8" id="ez2-pS-07Z"/>
                             <constraint firstItem="m4n-HP-gqf" firstAttribute="leading" secondItem="zFt-VE-pV1" secondAttribute="trailing" constant="25" id="gbn-TS-dcs"/>
                             <constraint firstItem="zYa-g1-Iew" firstAttribute="top" secondItem="TpF-8Z-eJX" secondAttribute="bottom" constant="4" id="gow-Rx-dhC"/>
-                            <constraint firstItem="IYL-mn-zGk" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="4" id="ip0-TS-4zZ"/>
+                            <constraint firstItem="IYL-mn-zGk" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="0.5" id="ip0-TS-4zZ"/>
                             <constraint firstItem="t74-Y3-Rew" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="jrC-T5-FJ8"/>
                             <constraint firstItem="TpF-8Z-eJX" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="kBO-da-L5U"/>
                             <constraint firstItem="TpF-8Z-eJX" firstAttribute="top" secondItem="YsX-ER-Jpp" secondAttribute="bottom" constant="21" id="krR-Tp-7fN"/>
                             <constraint firstItem="RK8-SD-K8Y" firstAttribute="leading" secondItem="NSd-Ki-L2a" secondAttribute="leading" constant="20" id="sP3-jr-D7n"/>
                             <constraint firstItem="YNh-aZ-dwl" firstAttribute="centerX" secondItem="NSd-Ki-L2a" secondAttribute="centerX" id="tBv-XM-KrS"/>
-                            <constraint firstItem="tx7-Pe-y1o" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="3" id="u0k-d8-yu5"/>
+                            <constraint firstItem="tx7-Pe-y1o" firstAttribute="top" secondItem="Q7a-e0-M0A" secondAttribute="bottom" constant="0.5" id="u0k-d8-yu5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1651,6 +1620,6 @@
         <image name="intro-phone" width="202" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLD-QP-O6k"/>
+        <segue reference="wut-T0-j2B"/>
     </inferredMetricsTieBreakers>
 </document>

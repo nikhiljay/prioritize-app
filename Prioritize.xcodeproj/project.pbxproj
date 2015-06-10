@@ -69,6 +69,7 @@
 		31B12C191AA2A1FC00C6B2C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C181AA2A1FC00C6B2C9 /* AudioToolbox.framework */; };
 		31B12C1B1AA2B0DB00C6B2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B12BB21AA29F7500C6B2C9 /* AppDelegate.swift */; };
 		31B12C1D1AA2B2DB00C6B2C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B12C1C1AA2B2DB00C6B2C9 /* Images.xcassets */; };
+		31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31CC1CA51B28BA9400E238F2 /* MapKit.framework */; };
 		31DBC94B1AB28CEF00B1C693 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DBC9441AB28CEF00B1C693 /* TPKeyboardAvoidingCollectionView.m */; };
 		31DBC94C1AB28CEF00B1C693 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DBC9461AB28CEF00B1C693 /* TPKeyboardAvoidingScrollView.m */; };
 		31DBC94D1AB28CEF00B1C693 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DBC9481AB28CEF00B1C693 /* TPKeyboardAvoidingTableView.m */; };
@@ -154,6 +155,7 @@
 		31B12C161AA2A1F100C6B2C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		31B12C181AA2A1FC00C6B2C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		31B12C1C1AA2B2DB00C6B2C9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		31CC1CA51B28BA9400E238F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		31DBC9431AB28CEF00B1C693 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		31DBC9441AB28CEF00B1C693 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
 		31DBC9451AB28CEF00B1C693 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				31B12C0B1AA2A1C900C6B2C9 /* Security.framework in Frameworks */,
 				31B12C091AA2A1C400C6B2C9 /* StoreKit.framework in Frameworks */,
 				31B12C071AA2A1BE00C6B2C9 /* SystemConfiguration.framework in Frameworks */,
+				31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */,
 				31B12BCD1AA29FFA00C6B2C9 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +344,7 @@
 		31B12C1A1AA2B01800C6B2C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31CC1CA51B28BA9400E238F2 /* MapKit.framework */,
 				31B12C181AA2A1FC00C6B2C9 /* AudioToolbox.framework */,
 				31B12C161AA2A1F100C6B2C9 /* CFNetwork.framework */,
 				31B12C141AA2A1EB00C6B2C9 /* CoreGraphics.framework */,
@@ -425,11 +429,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Prioritize;
 				TargetAttributes = {
 					31B12B861AA29E4E00C6B2C9 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					31B12B9B1AA29E4E00C6B2C9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -575,6 +584,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Asha D'Souza (7T9URG9WF3)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -589,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -626,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -647,6 +657,7 @@
 				INFOPLIST_FILE = PrioritizeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp;
 				PRODUCT_NAME = Prioritize;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrioritizeApp/PrioritizeApp-Bridging-Header.h";
@@ -669,6 +680,7 @@
 				INFOPLIST_FILE = PrioritizeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp;
 				PRODUCT_NAME = Prioritize;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrioritizeApp/PrioritizeApp-Bridging-Header.h";
@@ -690,6 +702,7 @@
 				);
 				INFOPLIST_FILE = PrioritizeAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Prioritize.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PrioritizeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrioritizeApp.app/PrioritizeApp";
 			};
@@ -705,6 +718,7 @@
 				);
 				INFOPLIST_FILE = PrioritizeAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Prioritize.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PrioritizeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrioritizeApp.app/PrioritizeApp";
 			};

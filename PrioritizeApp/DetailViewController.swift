@@ -99,6 +99,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             noAddressLabel.hidden = true
         }
         
+        locationMapView.delegate = self
         locationMapView.layer.cornerRadius = 5.0
         
         self.locationManager.delegate = self
@@ -108,51 +109,82 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         locationMapView.showsUserLocation = true
         
         //GEOCODING OF POINT B!
-        var geocodeAddress = addressTitle
-        var geocoder = CLGeocoder()
+        let geocodeAddress = addressTitle
+        let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             if let placemark = placemarks?[0] {
-                self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
+                self.destinationPlacemark = placemark
+                
+                let pin = MKPlacemark(placemark: placemark)
+                self.locationMapView.addAnnotation(pin)
+                self.recenterMap()
             }
         })
+    
         
-        let currentLocation = MKMapItem.mapItemForCurrentLocation()
-        geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            if let placemark = placemarks?[0] {
-                let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
-                self.userLocation = currentLocation.placemark.location
-                
-                let location = MKMapItem(placemark: markLocation)
-                
-                location.name = address
-                
-                let array = NSArray(objects: currentLocation, location)
-                
-                var endPointLatitude = placemark.location.coordinate.latitude
-                var endPointLongitude = placemark.location.coordinate.longitude
-                var endPoint = placemark.location.coordinate
-                
-                //FIND THE DISTANCE BETWEEN POINT A (currentlocation) AND POINT B (endPoint)
+        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
+            self.locationManager.requestWhenInUseAuthorization()
+        } else {
+            if #available(iOS 9.0, *) {
+                self.locationManager.requestLocation()
             }
-        })
-        
-//        let distance = userLocation.distanceFromLocation(destinationLocation)
-//        println(distance)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            manager.startUpdatingLocation()
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            if (error != nil) {
-                print("Error: " + error!.localizedDescription)
-                return
+//        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+//            if (error != nil) {
+//                print("Error: " + error!.localizedDescription)
+//                return
+//            }
+//            if placemarks!.count > 0 {
+//                let pm = placemarks![0] as CLPlacemark
+//                self.displayLocationInfo(pm)
+//            } else {
+//                print("Error with the data.")
+//            }
+//        })
+        
+        updateDistanceToPlace()
+    }
+    
+    func updateDistanceToPlace() {
+        if let userLocation = locationManager.location {
+            if let place = destinationPlacemark {
+                let distance = userLocation.distanceFromLocation(place.location)
+                totalDriveTime.text = "\(Int((floor(distance/1609.34))))"
             }
-            if placemarks!.count > 0 {
-                let pm = placemarks![0] as CLPlacemark
-                self.displayLocationInfo(pm)
-            } else {
-                print("Error with the data.")
-            }
-        })
+            
+            locationManager.stopUpdatingLocation()
+        }
+    }
+
+    func recenterMap() {
+        let mapView = self.locationMapView
+        
+        var annotations = mapView.annotations
+        
+        if annotations.count > 1 {
+            annotations.append(mapView.userLocation)
+            self.locationMapView.showAnnotations(annotations, animated: true)
+        }
+
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        recenterMap()
+    }
+    
+    var destinationPlacemark: CLPlacemark? {
+        didSet {
+            updateDistanceToPlace()
+        }
     }
     
     @IBAction func openInAppleMaps(sender: AnyObject) {
@@ -170,10 +202,12 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         }
         
-        var geocodeAddress = addressTitle
-        var geocoder = CLGeocoder()
+        let geocodeAddress = addressTitle
+        let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             if let placemark = placemarks![0] as? CLPlacemark {
+                self.destinationPlacemark = placemark
+                
                 let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
                 
                 let location = MKMapItem(placemark: markLocation)
@@ -189,7 +223,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         })
     }
     
-    func displayLocationInfo(placemark: CLPlacemark) {
+    func displayLocationInfo(userPlacemark: CLPlacemark) {
         self.locationManager.stopUpdatingLocation()
         
         //USER'S CURRENT LOCATION!
@@ -198,7 +232,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //        println(placemark.postalCode)
 //        println(placemark.administrativeArea)
 //        println(placemark.country)
-        print(placemark.location.coordinate.longitude)
+        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -207,14 +241,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var events = currentUser["events"] as? [String]
-        var addresses = currentUser["addresses"] as? [String]
-        var startTimes = currentUser["startTimes"] as? [String]
-        var endTimes = currentUser["endTimes"] as? [String]
+//        var events = currentUser["events"] as? [String]
+//        var addresses = currentUser["addresses"] as? [String]
+//        var startTimes = currentUser["startTimes"] as? [String]
+//        var endTimes = currentUser["endTimes"] as? [String]
         
         if segue.identifier == "ShowEditEventSegue" {
             let vc = segue.destinationViewController as! EditEventViewController
-            if let indexPath = eventIndex {
+            if let _ = eventIndex {
                 vc.eventIndex = eventIndex
                 vc.addressIndex = eventIndex
                 vc.startTimeIndex = eventIndex
