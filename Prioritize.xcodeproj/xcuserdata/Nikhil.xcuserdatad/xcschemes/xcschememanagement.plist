@@ -9,13 +9,6 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>PrioritizeApp.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -35,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>31B12B9B1AA29E4E00C6B2C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31C12A821B2A3CDD00DCB617</key>
 		<dict>
 			<key>primary</key>
 			<true/>
