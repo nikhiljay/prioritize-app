@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
 
 class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -138,19 +139,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-//        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-//            if (error != nil) {
-//                print("Error: " + error!.localizedDescription)
-//                return
-//            }
-//            if placemarks!.count > 0 {
-//                let pm = placemarks![0] as CLPlacemark
-//                self.displayLocationInfo(pm)
-//            } else {
-//                print("Error with the data.")
-//            }
-//        })
-        
         updateDistanceToPlace()
     }
     

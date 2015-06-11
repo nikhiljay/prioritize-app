@@ -349,6 +349,9 @@
                                         <state key="normal" image="icon-hamburger">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="pY5-AP-nWh" eventType="touchUpInside" id="tr1-xt-BF3"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW9-kw-SHM">
                                         <rect key="frame" x="40" y="66" width="30" height="21"/>
@@ -472,6 +475,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="aboutUsButton" destination="Bbb-UC-FNh" id="EmC-MD-sSe"/>
+                        <outlet property="addButton" destination="NbH-cz-2ZI" id="MAy-y4-H35"/>
                         <outlet property="editButton" destination="YUR-hA-FcU" id="QjQ-0b-PsY"/>
                         <outlet property="logoutButton" destination="Le8-1M-dNG" id="vek-cp-o2b"/>
                         <outlet property="maskView" destination="GEK-LD-rKp" id="dB8-sO-eEg"/>

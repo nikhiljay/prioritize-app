@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,6 +20,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var aboutUsButton: UIButton!
     @IBOutlet weak var maskView: SpringButton!
     @IBOutlet weak var newEventBubbleImage: SpringImageView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBOutlet weak var navigationBar: UINavigationItem!
     var currentUser = PFUser.currentUser()
@@ -160,10 +162,29 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         menuView.animate()
         maskView.hidden = true
     }
-    
+
     @IBAction func logoutPressed(sender: AnyObject) {
         PFUser.logOut()
         presentLoginViewController()
+    }
+    
+    @IBAction func editButtonPressed(sender: AnyObject) {
+        hideMenu()
+        tableView.setEditing(true, animated: true)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "stopEditing")
+    }
+    
+    func stopEditing() {
+        tableView.setEditing(false, animated: true)
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
     }
     
     func presentLoginViewController() {

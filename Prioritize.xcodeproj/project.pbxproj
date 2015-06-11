@@ -772,6 +772,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdPartyFrameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = Prioritize_Watch_Extension;
 				INFOPLIST_FILE = "Prioritize-Watch/Info.plist";
@@ -794,6 +795,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdPartyFrameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = Prioritize_Watch_Extension;
 				INFOPLIST_FILE = "Prioritize-Watch/Info.plist";
@@ -811,6 +813,7 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdPartyFrameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Prioritize-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -829,6 +832,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdPartyFrameworks";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Prioritize-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -930,7 +934,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ThirdPartyFrameworks",
 				);
 				INFOPLIST_FILE = PrioritizeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -953,7 +957,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ThirdPartyFrameworks",
 				);
 				INFOPLIST_FILE = PrioritizeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1012,6 +1016,7 @@
 				31048AC51B294484005A1D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31048AC81B294484005A1D75 /* Build configuration list for PBXNativeTarget "Prioritize-Watch" */ = {
 			isa = XCConfigurationList;
@@ -1020,6 +1025,7 @@
 				31048AC31B294484005A1D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31B12B821AA29E4E00C6B2C9 /* Build configuration list for PBXProject "Prioritize" */ = {
 			isa = XCConfigurationList;
