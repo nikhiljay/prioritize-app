@@ -52,12 +52,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(sender: AnyObject) {
         showLoad()
         
-        var nameText = nameTextField.text!
-        var addressText = locationTextField.text!
-        var startTimesText = startTimeTextField.text!
-        var endTimesText = endTimeTextField.text!
+        let nameText = nameTextField.text!
+        let addressText = locationTextField.text!
+        let startTimesText = startTimeTextField.text!
+        let endTimesText = endTimeTextField.text!
         
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         
         var events:[String]
         var addresses: [String]
@@ -90,20 +90,20 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         
         //NIL DID NOT WORK SO I USED ""
         if self.nameTextField.text!.isEmpty == true {
-            var alert = UIAlertView(title:"Oops!", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else if self.startTimeTextField.text!.isEmpty == true {
-            var alert = UIAlertView(title:"Oops!", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else if self.endTimeTextField.text!.isEmpty == true {
-            var alert = UIAlertView(title:"Oops!", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else {
             if self.locationTextField.text == "" {
-                var alert = UIAlertView(title:"No address", message:"You did not give the event an address. The event will be added but there will be no map. Edit the event to add an address if needed.", delegate: self, cancelButtonTitle:"Got it!")
+                let alert = UIAlertView(title:"No address", message:"You did not give the event an address. The event will be added but there will be no map. Edit the event to add an address if needed.", delegate: self, cancelButtonTitle:"Got it!")
                 alert.show()
             }
             events.append(nameText)
@@ -123,19 +123,19 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.popViewControllerAnimated(true)
             
             //PUSH NOTIFICATION!
-            if let notification = currentUser["notifications"] as? Bool {
-                if notification == true {
-                    var data = [
-                        "alert" : "The event: \(nameTextField.text) is starting right now.",
-                        "badge" : "Increment",
-                        "sounds" : ""
-                    ]
-                    let push = PFPush()
-                    push.setChannel("Notifications")
-                    push.setData(data)
-                    push.sendPushInBackground()
-                }
-            }
+//            if let notification = currentUser["notifications"] as? Bool {
+//                if notification == true {
+//                    let data = [
+//                        "alert" : "The event: \(nameTextField.text) is starting right now.",
+//                        "badge" : "Increment",
+//                        "sounds" : ""
+//                    ]
+//                    let push = PFPush()
+//                    push.setChannel("Notifications")
+//                    push.setData(data)
+//                    push.sendPushInBackground()
+//                }
+//            }
         }
     }
     

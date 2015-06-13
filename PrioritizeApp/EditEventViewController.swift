@@ -39,7 +39,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         //SET TEXT FIELD TEXT AS CREATED TEXT
         
         //EVENT TITLE
-        let event = (currentUser["events"] as! [String])[eventIndex!]
+//        let event = (currentUser["events"] as! [String])[eventIndex!]
         var eventTitle = "No Event Title"
         
         if let events = currentUser["events"] as? [String] {
@@ -50,7 +50,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         nameTextField.text = eventTitle
         
         //ADDRESS TITLE
-        let address = (currentUser["addresses"]as! [String])[addressIndex!]
+//        let address = (currentUser["addresses"]as! [String])[addressIndex!]
         var addressTitle = "No Address"
         
         if let addresses = currentUser["addresses"] as? [String] {
@@ -61,7 +61,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         locationTextField.text = addressTitle
         
         //END TIME TITLE
-        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
+//        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
         var endTimeTitle = "No End Time"
         
         if let endTimes = currentUser["endTimes"] as? [String] {
@@ -72,7 +72,7 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         endTimeTextField.text = endTimeTitle
         
         //START TIME TITLE
-        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
+//        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
         var startTimeTitle = "No Start Time"
         
         if let startTimes = currentUser["startTimes"] as? [String] {
@@ -101,12 +101,12 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(sender: AnyObject) {
         showLoad()
         
-        var nameText = nameTextField.text!
-        var addressText = locationTextField.text!
-        var startTimesText = startTimeTextField.text!
-        var endTimesText = endTimeTextField.text!
+        let nameText = nameTextField.text!
+        let addressText = locationTextField.text!
+        let startTimesText = startTimeTextField.text!
+        let endTimesText = endTimeTextField.text!
         
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         
         var events:[String]
         var addresses: [String]
@@ -139,15 +139,15 @@ class EditEventViewController: UIViewController, UITextFieldDelegate {
         
         //NIL DID NOT WORK SO I USED ""
         if self.nameTextField.text == "" {
-            var alert = UIAlertView(title:"Oops", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Ok")
+            let alert = UIAlertView(title:"Oops", message:"You did not give the event a name!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
             hideLoad()
         } else if self.startTimeTextField.text == "" {
-            var alert = UIAlertView(title:"Oops", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Ok")
+            let alert = UIAlertView(title:"Oops", message:"You did not give the event a start time!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
             hideLoad()
         } else if self.endTimeTextField.text == "" {
-            var alert = UIAlertView(title:"Oops", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Ok")
+            let alert = UIAlertView(title:"Oops", message:"You did not give the event an end time!", delegate: self, cancelButtonTitle:"Ok")
             alert.show()
             hideLoad()
         } else {

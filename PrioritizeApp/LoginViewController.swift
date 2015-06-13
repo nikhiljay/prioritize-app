@@ -51,27 +51,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpPressed(sender: AnyObject) {
         showLoad()
         
-        var username = usernameTextField.text
-        var password = passwordTextField.text
+        let username = usernameTextField.text
+        let password = passwordTextField.text
         
-        var user = PFUser()
+        let user = PFUser()
         user.username = username
         user.password = password
         
         if self.passwordTextField.text == nil {
             shakeMainView()
-            var alert = UIAlertView(title:"Oops!", message:"Password field is empty!", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"Password field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else if self.usernameTextField.text == nil {
             shakeMainView()
             hideLoad()
-            var alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else if password!.characters.count < 5 {
             shakeMainView()
-            var alert = UIAlertView(title:"Oops!", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
+            let alert = UIAlertView(title:"Oops!", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
         } else {
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.performSegueWithIdentifier("loggedIn", sender: self)
                 } else {
                     let errorString = error!.userInfo["error"] as! String
-                    var alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
+                    let alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
                     alert.show()
                     self.hideLoad()
                 }

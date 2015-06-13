@@ -24,7 +24,6 @@ class TodayViewController: UIViewController {
         
         let date = NSDate()
         
-        let dateString = dateFormatter.stringFromDate(date)
         dateFormatter.dateFormat = "d"
         let day = dateFormatter.stringFromDate(date)
         dateFormatter.dateFormat = "MMM"
