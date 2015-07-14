@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wOP-GF-2EF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wOP-GF-2EF">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1079,7 +1078,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Bq-PFI">
-                                        <rect key="frame" x="100" y="463" width="120" height="41"/>
+                                        <rect key="frame" x="100" y="439" width="120" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="0da-Bp-Wqe"/>
                                             <constraint firstAttribute="height" constant="41" id="rEt-t4-1px"/>
@@ -1120,8 +1119,8 @@
                                     <constraint firstItem="As7-NH-WpW" firstAttribute="trailing" secondItem="3BY-Bh-gO0" secondAttribute="trailing" id="iDt-J1-4X0"/>
                                     <constraint firstItem="5Pn-xx-Ykk" firstAttribute="top" secondItem="sg0-98-sIN" secondAttribute="bottom" constant="8" id="iUP-Qj-oTC"/>
                                     <constraint firstItem="sg0-98-sIN" firstAttribute="leading" secondItem="TpC-Pl-V5w" secondAttribute="leading" constant="16" id="lqr-qC-Zzc"/>
-                                    <constraint firstItem="uod-Bq-PFI" firstAttribute="top" secondItem="5Pn-xx-Ykk" secondAttribute="bottom" constant="88" id="mWM-JW-Gbf"/>
-                                    <constraint firstAttribute="bottom" secondItem="uod-Bq-PFI" secondAttribute="bottom" constant="64" id="nfZ-8h-zS4"/>
+                                    <constraint firstItem="uod-Bq-PFI" firstAttribute="top" secondItem="5Pn-xx-Ykk" secondAttribute="bottom" constant="64" id="mWM-JW-Gbf"/>
+                                    <constraint firstAttribute="bottom" secondItem="uod-Bq-PFI" secondAttribute="bottom" constant="88" id="nfZ-8h-zS4"/>
                                     <constraint firstItem="9tI-AT-3Js" firstAttribute="leading" secondItem="ZZx-8c-X22" secondAttribute="trailing" constant="36" id="r3x-wW-pFO"/>
                                     <constraint firstAttribute="trailing" secondItem="5Pn-xx-Ykk" secondAttribute="trailing" constant="16" id="u4m-F3-Wf0"/>
                                     <constraint firstItem="9tI-AT-3Js" firstAttribute="top" secondItem="6eF-Ll-PTH" secondAttribute="bottom" constant="96" id="vcY-Cc-X9p"/>
@@ -1152,7 +1151,7 @@
             </objects>
             <point key="canvasLocation" x="3173" y="-252"/>
         </scene>
-        <!--Delegate-->
+        <!--Intro View Controller-->
         <scene sceneID="FII-Yl-qgd">
             <objects>
                 <viewController id="aev-7J-xZX" customClass="IntroViewController" customModule="Prioritize" customModuleProvider="target" sceneMemberID="viewController">
