@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31398B981B54EE40009A0C24 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31398B971B54EE40009A0C24 /* Parse.framework */; };
+		313EEE491B562EC7007A3017 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */; };
 		3169A8451ADE410000CBB35B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8441ADE410000CBB35B /* LocalStore.swift */; };
 		3169A8481ADE443F00CBB35B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8471ADE443F00CBB35B /* IntroViewController.swift */; };
 		3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8491ADE449300CBB35B /* DragDropBehavior.swift */; };
@@ -56,7 +58,6 @@
 		31B12BC31AA29F7500C6B2C9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B12BB91AA29F7500C6B2C9 /* TableViewController.swift */; };
 		31B12BC81AA29FB000C6B2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC61AA29FB000C6B2C9 /* LaunchScreen.xib */; };
 		31B12BC91AA29FB000C6B2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC71AA29FB000C6B2C9 /* Main.storyboard */; };
-		31B12BCD1AA29FFA00C6B2C9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12BCC1AA29FFA00C6B2C9 /* Parse.framework */; };
 		31B12C071AA2A1BE00C6B2C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */; };
 		31B12C091AA2A1C400C6B2C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */; };
 		31B12C0B1AA2A1C900C6B2C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C0A1AA2A1C900C6B2C9 /* Security.framework */; };
@@ -100,6 +101,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31398B971B54EE40009A0C24 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3169A8441ADE410000CBB35B /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		3169A8471ADE443F00CBB35B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		3169A8491ADE449300CBB35B /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
@@ -156,7 +159,6 @@
 		31B12BC41AA29F8A00C6B2C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31B12BC61AA29FB000C6B2C9 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		31B12BC71AA29FB000C6B2C9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		31B12BCC1AA29FFA00C6B2C9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		31B12C0A1AA2A1C900C6B2C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -190,12 +192,12 @@
 				31B12C131AA2A1E400C6B2C9 /* CoreLocation.framework in Frameworks */,
 				31B12C111AA2A1DE00C6B2C9 /* libz.dylib in Frameworks */,
 				31B12C0F1AA2A1D500C6B2C9 /* MobileCoreServices.framework in Frameworks */,
+				31398B981B54EE40009A0C24 /* Parse.framework in Frameworks */,
 				31B12C0D1AA2A1CF00C6B2C9 /* QuartzCore.framework in Frameworks */,
 				31B12C0B1AA2A1C900C6B2C9 /* Security.framework in Frameworks */,
 				31B12C091AA2A1C400C6B2C9 /* StoreKit.framework in Frameworks */,
 				31B12C071AA2A1BE00C6B2C9 /* SystemConfiguration.framework in Frameworks */,
 				31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */,
-				31B12BCD1AA29FFA00C6B2C9 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +322,7 @@
 				31B12BB11AA29F7500C6B2C9 /* AddItemViewController.swift */,
 				31B12BB01AA29F7500C6B2C9 /* AboutUsWebViewController.swift */,
 				31B12BB81AA29F7500C6B2C9 /* SettingsViewController.swift */,
+				313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */,
 				31B12C1C1AA2B2DB00C6B2C9 /* Images.xcassets */,
 				31B12BC71AA29FB000C6B2C9 /* Main.storyboard */,
 				31B12BC61AA29FB000C6B2C9 /* LaunchScreen.xib */,
@@ -368,7 +371,7 @@
 				31B12C0A1AA2A1C900C6B2C9 /* Security.framework */,
 				31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */,
 				31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */,
-				31B12BCC1AA29FFA00C6B2C9 /* Parse.framework */,
+				31398B971B54EE40009A0C24 /* Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				31812A9A1ADAE99300D79540 /* SpringButton.swift in Sources */,
 				31812A991ADAE99300D79540 /* SpringAnimation.swift in Sources */,
 				3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */,
+				313EEE491B562EC7007A3017 /* SettingsTableViewController.swift in Sources */,
 				31812A9D1ADAE99300D79540 /* SpringTextField.swift in Sources */,
 				31812A941ADAE99300D79540 /* LoadingView.swift in Sources */,
 				31812A8E1ADAE99300D79540 /* DesignableTextField.swift in Sources */,

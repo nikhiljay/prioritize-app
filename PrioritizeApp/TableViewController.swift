@@ -23,7 +23,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBOutlet weak var navigationBar: UINavigationItem!
-    var currentUser = PFUser.currentUser()
     var events: [String]?
     var addresses: [String]?
     var startTimes: [String]?
@@ -35,6 +34,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = PFUser.currentUser()
+
         currentUser.refresh()
         
         if !LocalStore.isIntroVisited() {
@@ -68,6 +69,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func refresh(sender: AnyObject) {
+        let currentUser = PFUser.currentUser()
+
         currentUser.refresh()
         if let refreshedEvents = currentUser["events"] as? [String] {
             events = refreshedEvents
@@ -78,11 +81,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let currentUser = PFUser.currentUser()
+
         events = currentUser["events"] as? [String]
         refreshArray()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let currentUser = PFUser.currentUser()
         
         events = currentUser["events"] as? [String]
         if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -196,6 +202,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let currentUser = PFUser.currentUser()
         
         events = currentUser["events"] as? [String]
         addresses = currentUser["addresses"] as? [String]
@@ -213,6 +220,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             vc.transitioningDelegate = transitionManager
         } else if segue.identifier == "ShowWebSegue" {
             let vc = segue.destinationViewController as! AboutUsWebViewController
+            vc.transitioningDelegate = transitionManager
+        }else if segue.identifier == "ShowSettingsSegue" {
+            let vc = segue.destinationViewController as! SettingsViewController
             vc.transitioningDelegate = transitionManager
         }
         

@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -25,51 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (PFUser.currentUser() == nil) {
             presentLoginViewController()
         }
-        
-        /*
-        let userNotificationTypes = (UIUserNotificationType.Alert |
-            UIUserNotificationType.Badge |
-            UIUserNotificationType.Sound);
-        
-        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
-        
-        if application.applicationState != UIApplicationState.Background {
-            // Track an app open here if we launch with a push, unless
-            // "content_available" was used to trigger a background push (introduced
-            // in iOS 7). In that case, we skip tracking here to avoid double
-            // counting the app-open.
-            let oldPushHandlerOnly = !self.respondsToSelector(Selector("application:didReceiveRemoteNotification:fetchCompletionHandler:"))
-            let noPushPayload: AnyObject? = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey]?
-            if oldPushHandlerOnly || noPushPayload != nil {
-                PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-            }
-        }
-        */
 
         return true
     }
-    
-    /*
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let currentInstallation = PFInstallation.currentInstallation()
-        currentInstallation.addUniqueObject("Notifications", forKey: "channels")
-        currentInstallation.saveInBackground()
-    }
-    
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        
-    }
-    
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        println(error.localizedDescription)
-    }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-    }
-    */
     
     func presentLoginViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
