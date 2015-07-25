@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import MapKit
+import CoreLocation
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,22 +21,29 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var aboutUsButton: UIButton!
     @IBOutlet weak var maskView: SpringButton!
-    @IBOutlet weak var newEventBubbleImage: SpringImageView!
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var dayLabel: SpringLabel!
+    @IBOutlet weak var dateLabel: SpringLabel!
     @IBOutlet weak var navigationBar: UINavigationItem!
+    
     var events: [String]?
     var addresses: [String]?
     var startTimes: [String]?
     var endTimes: [String]?
     
     var refreshControl = UIRefreshControl()
-    
     var transitionManager = TransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.currentUser()
+        
+        if currentUser == nil {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        } else {
 
         currentUser.refresh()
         
@@ -43,19 +52,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             LocalStore.setIntroAsVisited()
         }
 
-        //insertBlurView(maskView, UIBlurEffectStyle.Dark)
         menuView.hidden = true
         maskView.hidden = true
     
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        if let name = currentUser["name"] as? String {
-            if name == "" {
-                navigationItem.title = "Your Day"
-            } else {
-                navigationItem.title = "\(name)'s Day"
-            }
-        }
         
         //REFRESHING!
         self.refreshControl = UIRefreshControl()
@@ -63,11 +63,59 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         self.tableView.addSubview(refreshControl)
+        
+        let bar:UINavigationBar! =  self.navigationController?.navigationBar
+        bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        bar.shadowImage = UIImage()
+        bar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        
+        //DATE
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy MMMM dd"
+        
+        let date = NSDate()
+        
+        dateFormatter.dateFormat = "d"
+        let day = dateFormatter.stringFromDate(date)
+        dateFormatter.dateFormat = "MMMM"
+        let month = dateFormatter.stringFromDate(date)
+        dateFormatter.dateFormat = "yyyy"
+        let year = dateFormatter.stringFromDate(date)
+        
+        dateFormatter.dateFormat = "EEEE"
+        let dayOfWeekString = dateFormatter.stringFromDate(date)
+        
+        dayLabel.text = dayOfWeekString
+        dateLabel.text = "\(month) \(day), \(year)"
+        }
 
-        //NEW EVENT BUBBLE IMAGE!
-        newEventBubbleImage.hidden = true
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let currentUser = PFUser.currentUser()
+        
+        if currentUser == nil {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        } else {
+            let date = NSDate()
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+            let time = dateFormatter.stringFromDate(date)
+//            print(time)
+            
+            if let name = currentUser["name"] as? String {
+                if name == "" {
+                    navigationItem.title = "Your Day"
+                } else {
+                    navigationItem.title = "\(name)'s Day"
+                }
+            }
+        }
+    }
+
     func refresh(sender: AnyObject) {
         let currentUser = PFUser.currentUser()
 
@@ -82,9 +130,16 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let currentUser = PFUser.currentUser()
-
-        events = currentUser["events"] as? [String]
-        refreshArray()
+        
+        if currentUser == nil {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        } else {
+            events = currentUser["events"] as? [String]
+            refreshArray()
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -127,12 +182,39 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let currentUser = PFUser.currentUser()
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.backgroundColor = UIColor.clearColor()
         
+        startTimes = currentUser["startTimes"] as? [String]
+        endTimes = currentUser["endTimes"] as? [String]
+        let startTime = startTimes?[indexPath.row]
+        let endTime = endTimes?[indexPath.row]
+        
+        var allDayStart: Bool!
+        var allDayEnd: Bool!
+        
+        if endTime == "None" {
+            allDayEnd = true
+        } else {
+            allDayEnd = false
+        }
+        
+        if startTime == "None" {
+            allDayStart = true
+        } else {
+            allDayStart = false
+        }
+        
         if let events = events {
             cell.textLabel?.text = events[indexPath.row]
+            
+            if allDayEnd == true && allDayStart == true {
+                cell.detailTextLabel?.text = "All Day"
+            } else {
+                cell.detailTextLabel?.text = "\(startTime!) to \(endTime!)"
+            }
         }
         
         return cell
@@ -181,8 +263,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func stopEditing() {
+        let currentUser = PFUser.currentUser()
+        
         tableView.setEditing(false, animated: true)
-        self.navigationItem.rightBarButtonItem = addButton
+        tableView.dataSource?.numberOfSectionsInTableView!(tableView)
+        navigationBar.rightBarButtonItem = nil
+        currentUser.saveInBackground()
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -190,7 +276,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        
+        let currentUser = PFUser.currentUser()
+        currentUser.saveInBackground()
     }
     
     func presentLoginViewController() {
@@ -221,8 +308,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else if segue.identifier == "ShowWebSegue" {
             let vc = segue.destinationViewController as! AboutUsWebViewController
             vc.transitioningDelegate = transitionManager
-        }else if segue.identifier == "ShowSettingsSegue" {
-            let vc = segue.destinationViewController as! SettingsViewController
+        } else if segue.identifier == "ShowSettingsSegue" {
+            let vc = segue.destinationViewController as! SettingsTableViewController
+            vc.transitioningDelegate = transitionManager
+        } else if segue.identifier == "AddItemSegue" {
+            let vc = segue.destinationViewController as! AddItemTableViewController
             vc.transitioningDelegate = transitionManager
         }
         

@@ -27,10 +27,15 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var storeCloseTime: UILabel!
     @IBOutlet weak var appleMapsButton: UIButton!
     @IBOutlet weak var noAddressLabel: UILabel!
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
     
     var currentUser = PFUser.currentUser()
+    let transitionManager = TransitionManager()
     let locationManager = CLLocationManager()
     var userLocation: CLLocation!
+    var allDayStart: Bool!
+    var allDayEnd: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +45,63 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         appleMapsButton.layer.borderColor = UIColor.whiteColor().CGColor
         appleMapsButton.layer.borderWidth = 1
         appleMapsButton.layer.cornerRadius = 7
-
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
         //EVENT TITLE
-//        let event = (currentUser["events"]as! [String])[eventIndex!]
         var eventTitle = "No Event Title"
         
         if let events = currentUser["events"] as? [String] {
             if eventIndex != nil {
                 eventTitle = events[eventIndex!]
-
+                
             }
         }
-
+        
+        //END TIME TITLE
+        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
+        if endTime == "None" {
+            allDayEnd = true
+        } else {
+            allDayEnd = false
+        }
+        var endTimeTitle = "No End Time"
+        
+        if let endTimes = currentUser["endTimes"] as? [String] {
+            if endTimeIndex != nil {
+                endTimeTitle = endTimes[endTimeIndex!]
+            }
+        }
+        //START TIME TITLE
+        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
+        if startTime == "None" {
+            allDayStart = true
+        } else {
+            allDayStart = false
+        }
+        var startTimeTitle = "No Start Time"
+        
+        if let startTimes = currentUser["startTime"] as? [String] {
+            if startTimeIndex != nil {
+                startTimeTitle = startTimes[startTimeIndex!]
+            }
+        }
+        
+        if allDayEnd == true && allDayStart == true {
+            toLabel.text = "All Day"
+            fromLabel.text = "Scheduled"
+            startTimeLabel.hidden = true
+            endTimeLabel.hidden = true
+        } else  {
+            toLabel.text = "to"
+            fromLabel.text = "Scheduled from"
+            startTimeLabel.hidden = false
+            endTimeLabel.hidden = false
+        }
+        
         //ADDRESS TITLE
         let address = (currentUser["addresses"]as! [String])[addressIndex!]
         var addressTitle = "No Address"
@@ -65,29 +115,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 addressTitle = addresses[addressIndex!]
             }
         }
-        //END TIME TITLE
-        let endTime = (currentUser["endTimes"]as! [String])[endTimeIndex!]
-        var endTimeTitle = "No End Time"
-        
-        if let endTimes = currentUser["endTimes"] as? [String] {
-            if endTimeIndex != nil {
-                endTimeTitle = endTimes[endTimeIndex!]
-            }
-        }
-        //START TIME TITLE
-        let startTime = (currentUser["startTimes"]as! [String])[startTimeIndex!]
-        var startTimeTitle = "No Start Time"
-        
-        if let startTimes = currentUser["startTime"] as? [String] {
-            if startTimeIndex != nil {
-                startTimeTitle = startTimes[startTimeIndex!]
-            }
-        }
         
         eventTitleLabel.text = eventTitle
         startTimeLabel.text = startTime
         endTimeLabel.text = endTime
-
+        
         //MAPVIEW
         //If no address, then don't show the MapView.
         if address == "" {
@@ -121,7 +153,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 self.recenterMap()
             }
         })
-    
+        
         
         if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
             self.locationManager.requestWhenInUseAuthorization()
@@ -193,7 +225,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let geocodeAddress = addressTitle
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(geocodeAddress, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            if let placemark = placemarks![0] as? CLPlacemark {
+            if let placemark = placemarks![0] as CLPlacemark! {
                 self.destinationPlacemark = placemark
                 
                 let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
@@ -206,21 +238,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 
                 let parameter = NSDictionary(object: MKLaunchOptionsDirectionsModeDriving, forKey: MKLaunchOptionsDirectionsModeKey)
                 
-                MKMapItem.openMapsWithItems(array as! [MKMapItem], launchOptions: parameter as! [String : AnyObject])
+                MKMapItem.openMapsWithItems(array as! [MKMapItem], launchOptions: parameter as? [String : AnyObject])
             }
         })
-    }
-    
-    func displayLocationInfo(userPlacemark: CLPlacemark) {
-        self.locationManager.stopUpdatingLocation()
-        
-        //USER'S CURRENT LOCATION!
-//        println(placemark.subLocality)
-//        println(placemark.locality)
-//        println(placemark.postalCode)
-//        println(placemark.administrativeArea)
-//        println(placemark.country)
-        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -229,18 +249,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-//        var events = currentUser["events"] as? [String]
-//        var addresses = currentUser["addresses"] as? [String]
-//        var startTimes = currentUser["startTimes"] as? [String]
-//        var endTimes = currentUser["endTimes"] as? [String]
-        
         if segue.identifier == "ShowEditEventSegue" {
-            let vc = segue.destinationViewController as! EditEventViewController
+            let vc = segue.destinationViewController as! EditEventTableViewController
             if let _ = eventIndex {
                 vc.eventIndex = eventIndex
                 vc.addressIndex = eventIndex
                 vc.startTimeIndex = eventIndex
                 vc.endTimeIndex = eventIndex
+                vc.transitioningDelegate = transitionManager
             }
         }
         
