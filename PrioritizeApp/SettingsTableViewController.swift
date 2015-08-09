@@ -17,6 +17,12 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordButton: UIButton!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var emptyTableCell: UITableViewCell!
+    @IBOutlet weak var notificationsTableCell: UITableViewCell!
+    @IBOutlet weak var passwordTableCell: UITableViewCell!
+    @IBOutlet weak var nameTableCell: UITableViewCell!
+    @IBOutlet weak var topView: UIView!
     
     var transitionManager = TransitionManager()
     var tableArray = ["test1", "test2", "test3"]
@@ -32,8 +38,9 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         if let notifications = currentUser["notifications"] as? Bool {
             notificationSwitch.on = notifications
         }
+        
+        bottomView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height-(topView.frame.height+nameTableCell.frame.height+passwordTableCell.frame.height+notificationsTableCell.frame.height+emptyTableCell.frame.height))
     }
-
     
     func load() {
         view.showLoading()
@@ -154,7 +161,5 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
-
 
 }
