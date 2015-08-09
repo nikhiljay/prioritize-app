@@ -22,7 +22,6 @@
 		31812A8A1ADAE99300D79540 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A6C1ADAE99300D79540 /* DesignableButton.swift */; };
 		31812A8B1ADAE99300D79540 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A6D1ADAE99300D79540 /* DesignableImageView.swift */; };
 		31812A8C1ADAE99300D79540 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A6E1ADAE99300D79540 /* DesignableLabel.swift */; };
-		31812A8D1ADAE99300D79540 /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A6F1ADAE99300D79540 /* DesignableTabBarController.swift */; };
 		31812A8E1ADAE99300D79540 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A701ADAE99300D79540 /* DesignableTextField.swift */; };
 		31812A8F1ADAE99300D79540 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A711ADAE99300D79540 /* DesignableTextView.swift */; };
 		31812A901ADAE99300D79540 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A721ADAE99300D79540 /* DesignableView.swift */; };
@@ -102,7 +101,6 @@
 		31812A6C1ADAE99300D79540 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		31812A6D1ADAE99300D79540 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		31812A6E1ADAE99300D79540 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
-		31812A6F1ADAE99300D79540 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
 		31812A701ADAE99300D79540 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		31812A711ADAE99300D79540 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
 		31812A721ADAE99300D79540 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				31812A6C1ADAE99300D79540 /* DesignableButton.swift */,
 				31812A6D1ADAE99300D79540 /* DesignableImageView.swift */,
 				31812A6E1ADAE99300D79540 /* DesignableLabel.swift */,
-				31812A6F1ADAE99300D79540 /* DesignableTabBarController.swift */,
 				31812A701ADAE99300D79540 /* DesignableTextField.swift */,
 				31812A711ADAE99300D79540 /* DesignableTextView.swift */,
 				31812A721ADAE99300D79540 /* DesignableView.swift */,
@@ -486,7 +483,6 @@
 				31812A931ADAE99300D79540 /* KeyboardLayoutConstraint.swift in Sources */,
 				31812AA01ADAE99300D79540 /* TransitionManager.swift in Sources */,
 				31812A8B1ADAE99300D79540 /* DesignableImageView.swift in Sources */,
-				31812A8D1ADAE99300D79540 /* DesignableTabBarController.swift in Sources */,
 				31B12BC31AA29F7500C6B2C9 /* TableViewController.swift in Sources */,
 				31C83C0C1B59774F00F9A740 /* CreateAccountTableViewController.swift in Sources */,
 				31812A9F1ADAE99300D79540 /* SpringView.swift in Sources */,
@@ -591,6 +587,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyFrameworks",
@@ -616,6 +613,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyFrameworks",

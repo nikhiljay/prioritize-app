@@ -62,7 +62,7 @@ public class ImageLoader {
                     return
                 }
                 
-            })!
+            })
             downloadTask.resume()
         })
         

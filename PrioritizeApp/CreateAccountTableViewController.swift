@@ -77,8 +77,7 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
             alert.show()
             hideLoad()
         } else {
-            user.signUpInBackgroundWithBlock {
-                (succeeded: Bool, error: NSError?) -> Void in
+            user.signUpInBackgroundWithBlock { (succeeded, error) -> Void in
                 if error == nil {
                     self.performSegueWithIdentifier("accountCreated", sender: self)
                     self.performSegueWithIdentifier("loggedIn", sender: LoginViewController())

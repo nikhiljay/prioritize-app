@@ -170,14 +170,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         updateDistanceToPlace()
     }
     
     func updateDistanceToPlace() {
         if let userLocation = locationManager.location {
             if let place = destinationPlacemark {
-                let distance = userLocation.distanceFromLocation(place.location)
+                let distance = userLocation.distanceFromLocation(place.location!)
                 totalDriveTime.text = "\(Int((floor(distance/1609.34))))"
             }
             
@@ -228,7 +228,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             if let placemark = placemarks![0] as CLPlacemark! {
                 self.destinationPlacemark = placemark
                 
-                let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude), addressDictionary: nil)
+                let markLocation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(placemark.location!.coordinate.latitude, placemark.location!.coordinate.longitude), addressDictionary: nil)
                 
                 let location = MKMapItem(placemark: markLocation)
                 
