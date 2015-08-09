@@ -85,6 +85,12 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         incorrectPasswordAlert.show()
     }
     
+    func showInvalidPassword() {
+        let incorrectPasswordAlert = UIAlertView(title:"Invalid Password", message:"Too short password! Needs at least 5 characters.", delegate: self, cancelButtonTitle:"Got it!")
+        incorrectPasswordAlert.alertViewStyle = UIAlertViewStyle.Default
+        incorrectPasswordAlert.show()
+    }
+    
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         let currentUser = PFUser.currentUser()
         
