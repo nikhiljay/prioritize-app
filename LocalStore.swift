@@ -12,12 +12,12 @@ struct LocalStore {
 
     private static let userDefaults = NSUserDefaults.standardUserDefaults()
 
-    static func setIntroAsVisited() {
-        userDefaults.setObject(true, forKey: "introKey")
+    static func setWalkthroughAsVisited() {
+        userDefaults.setObject(true, forKey: "walkthroughKey")
     }
     
-    static func isIntroVisited() -> Bool {
-        return userDefaults.boolForKey("introKey")
+    static func isWalkthroughVisited() -> Bool {
+        return userDefaults.boolForKey("walkthroughKey")
     }
 
 }

@@ -12,7 +12,6 @@
 		313EEE4B1B567560007A3017 /* EditEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */; };
 		313EEE4D1B567AC3007A3017 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */; };
 		3169A8451ADE410000CBB35B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8441ADE410000CBB35B /* LocalStore.swift */; };
-		3169A8481ADE443F00CBB35B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8471ADE443F00CBB35B /* IntroViewController.swift */; };
 		3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8491ADE449300CBB35B /* DragDropBehavior.swift */; };
 		317E69D51AB7FB3500C40FA9 /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E69D41AB7FB3500C40FA9 /* MenuControl.swift */; };
 		31812A861ADAE99300D79540 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A681ADAE99300D79540 /* AsyncButton.swift */; };
@@ -43,6 +42,7 @@
 		31812AA01ADAE99300D79540 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A831ADAE99300D79540 /* TransitionManager.swift */; };
 		31812AA11ADAE99300D79540 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A841ADAE99300D79540 /* TransitionZoom.swift */; };
 		31812AA21ADAE99300D79540 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31812A851ADAE99300D79540 /* UnwindSegue.swift */; };
+		319AF57D1B790CF400776094 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC41AA29F8A00C6B2C9 /* Info.plist */; };
 		31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */; };
 		31A5D4CF1ABBD85D008FDFC1 /* upvote.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CD1ABBD85D008FDFC1 /* upvote.wav */; };
 		31A5D4D11ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+DesignerNewsApp.swift */; };
@@ -91,7 +91,6 @@
 		313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEventTableViewController.swift; sourceTree = "<group>"; };
 		313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 		3169A8441ADE410000CBB35B /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
-		3169A8471ADE443F00CBB35B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		3169A8491ADE449300CBB35B /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
 		317E69D41AB7FB3500C40FA9 /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
 		31812A681ADAE99300D79540 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -281,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				31B12BB21AA29F7500C6B2C9 /* AppDelegate.swift */,
-				3169A8471ADE443F00CBB35B /* IntroViewController.swift */,
 				31B12BB71AA29F7500C6B2C9 /* NavigationViewController.swift */,
 				31B12BB51AA29F7500C6B2C9 /* LoginViewController.swift */,
 				31C83C0B1B59774F00F9A740 /* CreateAccountTableViewController.swift */,
@@ -432,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319AF57D1B790CF400776094 /* Info.plist in Resources */,
 				31B12BC91AA29FB000C6B2C9 /* Main.storyboard in Resources */,
 				31A5D4CF1ABBD85D008FDFC1 /* upvote.wav in Resources */,
 				31812A921ADAE99300D79540 /* Info.plist in Resources */,
@@ -471,7 +470,6 @@
 				31812A971ADAE99300D79540 /* SoundPlayer.swift in Sources */,
 				31DBC94D1AB28CEF00B1C693 /* TPKeyboardAvoidingTableView.m in Sources */,
 				31B12BBD1AA29F7500C6B2C9 /* DetailViewController.swift in Sources */,
-				3169A8481ADE443F00CBB35B /* IntroViewController.swift in Sources */,
 				3169A8451ADE410000CBB35B /* LocalStore.swift in Sources */,
 				31DBC94E1AB28CEF00B1C693 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				31812A961ADAE99300D79540 /* Misc.swift in Sources */,

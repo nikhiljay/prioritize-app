@@ -25,6 +25,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var dayLabel: SpringLabel!
     @IBOutlet weak var dateLabel: SpringLabel!
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var profileButton: UIBarButtonItem!
+    @IBOutlet weak var profileImage: UIImageView!
     
     var events: [String]?
     var addresses: [String]?
@@ -45,50 +47,50 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.presentViewController(vc, animated: true, completion: nil)
         } else {
 
-        currentUser.refresh()
+            currentUser.refresh()
+            
+            if !LocalStore.isWalkthroughVisited() {
+//                showWalkthrough()
+                LocalStore.setWalkthroughAsVisited()
+            }
+            
+            menuView.hidden = true
+            maskView.hidden = true
+            
+            self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+            
+            //REFRESHING!
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes:         [NSForegroundColorAttributeName : UIColor.whiteColor()])
+            self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+            refreshControl.tintColor = UIColor.whiteColor()
+            self.tableView.addSubview(refreshControl)
         
-        if !LocalStore.isIntroVisited() {
-            performSegueWithIdentifier("IntroSegue", sender: self)
-            LocalStore.setIntroAsVisited()
+            let bar:UINavigationBar! =  self.navigationController?.navigationBar
+            bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            bar.shadowImage = UIImage()
+            bar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            
+            //DATE
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy MMMM dd"
+        
+            let date = NSDate()
+            
+            dateFormatter.dateFormat = "d"
+            let day = dateFormatter.stringFromDate(date)
+            dateFormatter.dateFormat = "MMMM"
+            let month = dateFormatter.stringFromDate(date)
+            dateFormatter.dateFormat = "yyyy"
+            let year = dateFormatter.stringFromDate(date)
+            
+            dateFormatter.dateFormat = "EEEE"
+            let dayOfWeekString = dateFormatter.stringFromDate(date)
+            
+            dayLabel.text = dayOfWeekString
+            dateLabel.text = "\(month) \(day), \(year)"
         }
-
-        menuView.hidden = true
-        maskView.hidden = true
-    
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        //REFRESHING!
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        refreshControl.tintColor = UIColor.whiteColor()
-        self.tableView.addSubview(refreshControl)
-        
-        let bar:UINavigationBar! =  self.navigationController?.navigationBar
-        bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        bar.shadowImage = UIImage()
-        bar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        
-        //DATE
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy MMMM dd"
-        
-        let date = NSDate()
-        
-        dateFormatter.dateFormat = "d"
-        let day = dateFormatter.stringFromDate(date)
-        dateFormatter.dateFormat = "MMMM"
-        let month = dateFormatter.stringFromDate(date)
-        dateFormatter.dateFormat = "yyyy"
-        let year = dateFormatter.stringFromDate(date)
-        
-        dateFormatter.dateFormat = "EEEE"
-        let dayOfWeekString = dateFormatter.stringFromDate(date)
-        
-        dayLabel.text = dayOfWeekString
-        dateLabel.text = "\(month) \(day), \(year)"
-        }
-
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -113,7 +115,35 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     navigationItem.title = "\(name)'s Day"
                 }
             }
+            
+            if currentUser["profilePicture"] != nil {
+                let userPicture = currentUser["profilePicture"] as! PFFile
+                userPicture.getDataInBackgroundWithBlock({ (imageData: NSData!, error) -> Void in
+                    if (error == nil) {
+                        let image = UIImage(data: imageData)
+                        let size = CGSize(width: 30, height: 30)
+                        let newImage = self.imageWithImage(image!, scaledToSize: size)
+                        self.profileImage.contentMode = .ScaleAspectFill
+                        self.profileImage.image = newImage
+                        self.profileImage.layer.masksToBounds = true
+                        self.profileImage.layer.cornerRadius = 15
+                    }
+                })
+            }
         }
+    }
+    
+    @IBAction func profilePressed(sender: AnyObject) {
+        print("profile pressed!")
+        performSegueWithIdentifier("profilePressed", sender: self)
+    }
+    
+    func imageWithImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
 
     func refresh(sender: AnyObject) {
@@ -313,6 +343,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             vc.transitioningDelegate = transitionManager
         } else if segue.identifier == "AddItemSegue" {
             let vc = segue.destinationViewController as! AddItemTableViewController
+            vc.transitioningDelegate = transitionManager
+        } else if segue.identifier == "profilePressed" {
+            let vc = segue.destinationViewController as! SettingsTableViewController
             vc.transitioningDelegate = transitionManager
         }
         

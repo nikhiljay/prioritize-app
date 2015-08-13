@@ -131,4 +131,8 @@ class AddItemTableViewController: UITableViewController {
         return false;
     }
     
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
 }

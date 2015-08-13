@@ -220,5 +220,9 @@ class EditEventTableViewController: UITableViewController {
         self.view.endEditing(true);
         return false;
     }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 
 }

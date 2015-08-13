@@ -9,8 +9,8 @@
 import UIKit
 import Parse
 
-class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
-
+class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
     @IBOutlet weak var deleteAccountButton: UIButton!
@@ -23,6 +23,10 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     @IBOutlet weak var passwordTableCell: UITableViewCell!
     @IBOutlet weak var nameTableCell: UITableViewCell!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var selectedImage: UIImageView!
+    @IBOutlet weak var addPictureButton: UIButton!
+    var imagePicker = UIImagePickerController()
+    var finalImage: UIImage!
     
     var transitionManager = TransitionManager()
     var tableArray = ["test1", "test2", "test3"]
@@ -40,16 +44,64 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         }
         
         bottomView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height-(topView.frame.height+nameTableCell.frame.height+passwordTableCell.frame.height+notificationsTableCell.frame.height+emptyTableCell.frame.height))
+        
+        imagePicker.delegate = self
+        if currentUser["profilePicture"] == nil {
+            selectedImage.hidden = true
+        } else {
+            selectedImage.image = currentUser["profilePicture"] as? UIImage
+            
+            let userPicture = currentUser["profilePicture"] as! PFFile
+            
+            userPicture.getDataInBackgroundWithBlock({ (imageData: NSData!, error) -> Void in
+                if (error == nil) {
+                    let image = UIImage(data: imageData)
+                    self.selectedImage.image = image
+                    self.selectedImage.contentMode = .ScaleAspectFill
+                }
+            })
+            
+            finalImage = selectedImage.image
+            selectedImage.hidden = false
+        }
+        self.selectedImage.layer.masksToBounds = true
+        self.selectedImage.layer.cornerRadius = 5
+        
     }
     
-    func load() {
+    func showLoad() {
         view.showLoading()
+    }
+    
+    func hideLoad() {
+        view.hideLoading()
+    }
+    
+    @IBAction func AddImageButton(sender: AnyObject) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage.contentMode = .ScaleAspectFill
+            selectedImage.image = image
+            selectedImage.hidden = false
+            finalImage = image
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func donePressed(sender: AnyObject) {
         let currentUser = PFUser.currentUser()
         
-        load()
+        showLoad()
         currentUser["name"] = nameTextField.text
         
         if notificationSwitch.on == true {
@@ -58,8 +110,19 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         else {
             currentUser["notifications"] = false
         }
-        dismissViewControllerAnimated(true, completion: nil)
-        currentUser.saveInBackground()
+        
+        if self.finalImage != nil {
+            let currentUser = PFUser.currentUser()
+            let imageData = UIImageJPEGRepresentation(self.finalImage, 0.1)
+            let imageFile: PFFile = PFFile(data: imageData)
+            currentUser["profilePicture"] = imageFile
+            dismissViewControllerAnimated(true, completion: nil)
+            currentUser.saveInBackground()
+        } else {
+            dismissViewControllerAnimated(true, completion: nil)
+            currentUser.saveInBackground()
+        }
+        
     }
     
     @IBAction func passwordButtonPressed(sender: AnyObject) {

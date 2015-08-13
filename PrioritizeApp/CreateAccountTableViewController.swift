@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class CreateAccountTableViewController: UITableViewController, UIImagePickerControllerDelegate {
+class CreateAccountTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var addPictureButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -17,6 +17,14 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var selectedImage: UIImageView!
     var imagePicker = UIImagePickerController()
+    var finalImage: UIImage!
+    
+    override func viewDidLoad() {
+        imagePicker.delegate = self
+        selectedImage.hidden = true
+        self.selectedImage.layer.masksToBounds = true
+        self.selectedImage.layer.cornerRadius = 5
+    }
     
     func showLoad() {
         view.showLoading()
@@ -27,23 +35,24 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     }
 
     @IBAction func AddImageButton(sender : AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = .PhotoLibrary
-            presentViewController(imagePicker, animated: true, completion: nil)
-        }
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            selectedImage.contentMode = .ScaleAspectFit
-            selectedImage.image = pickedImage
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage.contentMode = .ScaleAspectFill
+            selectedImage.image = image
+            selectedImage.hidden = false
+            finalImage = image
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -58,16 +67,16 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         user.password = password
         user.email = email
         
-        if self.passwordTextField.text == nil {
+        if self.passwordTextField.text == "" {
             let alert = UIAlertView(title:"Oops!", message:"Password field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if self.usernameTextField.text == nil {
+        } else if self.usernameTextField.text == "" {
             hideLoad()
             let alert = UIAlertView(title:"Oops!", message:"Username field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
             hideLoad()
-        } else if self.emailTextField.text == nil {
+        } else if self.emailTextField.text == "" {
             hideLoad()
             let alert = UIAlertView(title:"Oops!", message:"Email field is empty!", delegate: self, cancelButtonTitle:"Got it!")
             alert.show()
@@ -79,8 +88,16 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         } else {
             user.signUpInBackgroundWithBlock { (succeeded, error) -> Void in
                 if error == nil {
-                    self.performSegueWithIdentifier("accountCreated", sender: self)
-                    self.performSegueWithIdentifier("loggedIn", sender: LoginViewController())
+                    if self.finalImage != nil {
+                        let currentUser = PFUser.currentUser()
+                        let imageData = UIImageJPEGRepresentation(self.finalImage, 0.1)
+                        let imageFile: PFFile = PFFile(data: imageData)
+                        currentUser["profilePicture"] = imageFile
+                        self.performSegueWithIdentifier("accountCreated", sender: self)
+                        currentUser.saveInBackground()
+                    } else {
+                        self.performSegueWithIdentifier("accountCreated", sender: self)
+                    }
                 } else {
                     let errorString = error!.userInfo["error"] as! String
                     let alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
