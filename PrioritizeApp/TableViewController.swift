@@ -25,7 +25,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var dayLabel: SpringLabel!
     @IBOutlet weak var dateLabel: SpringLabel!
     @IBOutlet weak var navigationBar: UINavigationItem!
-    @IBOutlet weak var profileButton: UIBarButtonItem!
+    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     
     var events: [String]?
@@ -202,7 +202,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         currentUser.saveInBackground()
     }
-
+    
     func refreshArray() {
         tableView.reloadData()
     }
@@ -290,15 +290,24 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         hideMenu()
         tableView.setEditing(true, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "stopEditing")
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        profileImage.hidden = true
     }
     
     func stopEditing() {
         let currentUser = PFUser.currentUser()
         
         tableView.setEditing(false, animated: true)
-        tableView.dataSource?.numberOfSectionsInTableView!(tableView)
-        navigationBar.rightBarButtonItem = nil
+        navigationBar.rightBarButtonItem = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profilePressed")
+        currentUser["events"] = events
+        profileImage.hidden = false
+        
         currentUser.saveInBackground()
+    }
+    
+    func profilePressed() {
+        performSegueWithIdentifier("profilePressed", sender: self)
+        print("done")
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -307,6 +316,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         let currentUser = PFUser.currentUser()
+        
+        let movedObject = self.events![sourceIndexPath.row]
+        events!.removeAtIndex(sourceIndexPath.row)
+        events!.insert(movedObject, atIndex: destinationIndexPath.row)
+        
         currentUser.saveInBackground()
     }
     
