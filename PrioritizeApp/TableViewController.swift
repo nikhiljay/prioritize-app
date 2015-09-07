@@ -13,6 +13,7 @@ import CoreLocation
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: Definitions
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var menuView: DesignableView!
@@ -36,6 +37,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var refreshControl = UIRefreshControl()
     var transitionManager = TransitionManager()
     
+    //MARK: Main Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.currentUser()
@@ -133,30 +135,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBAction func profilePressed(sender: AnyObject) {
-        print("profile pressed!")
-        performSegueWithIdentifier("profilePressed", sender: self)
-    }
-    
-    func imageWithImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-
-    func refresh(sender: AnyObject) {
-        let currentUser = PFUser.currentUser()
-
-        currentUser.refresh()
-        if let refreshedEvents = currentUser["events"] as? [String] {
-            events = refreshedEvents
-        }
-        self.tableView.reloadData()
-        self.refreshControl.endRefreshing()
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let currentUser = PFUser.currentUser()
@@ -168,10 +146,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.presentViewController(vc, animated: true, completion: nil)
         } else {
             events = currentUser["events"] as? [String]
-            refreshArray()
+            tableView.reloadData()
         }
     }
     
+    //MARK: Table View Controller Methods
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let currentUser = PFUser.currentUser()
         
@@ -201,10 +180,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         currentUser.saveInBackground()
-    }
-    
-    func refreshArray() {
-        tableView.reloadData()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -250,6 +225,70 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let currentUser = PFUser.currentUser()
+        
+        let movedObject = self.events![sourceIndexPath.row]
+        events!.removeAtIndex(sourceIndexPath.row)
+        events!.insert(movedObject, atIndex: destinationIndexPath.row)
+        
+        currentUser.saveInBackground()
+    }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    @IBAction func editButtonPressed(sender: AnyObject) {
+        hideMenu()
+        tableView.setEditing(true, animated: true)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "stopEditing")
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        profileImage.hidden = true
+    }
+    
+    func stopEditing() {
+        let currentUser = PFUser.currentUser()
+        
+        tableView.setEditing(false, animated: true)
+        navigationBar.rightBarButtonItem = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profilePressed")
+        currentUser["events"] = events
+        profileImage.hidden = false
+        
+        currentUser.saveInBackground()
+    }
+    
+    func refresh(sender: AnyObject) {
+        let currentUser = PFUser.currentUser()
+        
+        currentUser.refresh()
+        if let refreshedEvents = currentUser["events"] as? [String] {
+            events = refreshedEvents
+        }
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
+    
+    //MARK: Profile Button
+    @IBAction func profilePressed(sender: AnyObject) {
+        print("profile pressed!")
+        performSegueWithIdentifier("profilePressed", sender: self)
+    }
+    
+    func imageWithImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    func profilePressed() {
+        performSegueWithIdentifier("profilePressed", sender: self)
+        print("done")
+    }
+    
+    //MARK: Menu Methods
     @IBAction func menuButtonPressed(sender: AnyObject) {
         if maskView.hidden == true {
             showMenu()
@@ -286,50 +325,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         presentLoginViewController()
     }
     
-    @IBAction func editButtonPressed(sender: AnyObject) {
-        hideMenu()
-        tableView.setEditing(true, animated: true)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "stopEditing")
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
-        profileImage.hidden = true
-    }
-    
-    func stopEditing() {
-        let currentUser = PFUser.currentUser()
-        
-        tableView.setEditing(false, animated: true)
-        navigationBar.rightBarButtonItem = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profilePressed")
-        currentUser["events"] = events
-        profileImage.hidden = false
-        
-        currentUser.saveInBackground()
-    }
-    
-    func profilePressed() {
-        performSegueWithIdentifier("profilePressed", sender: self)
-        print("done")
-    }
-    
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let currentUser = PFUser.currentUser()
-        
-        let movedObject = self.events![sourceIndexPath.row]
-        events!.removeAtIndex(sourceIndexPath.row)
-        events!.insert(movedObject, atIndex: destinationIndexPath.row)
-        
-        currentUser.saveInBackground()
-    }
-    
+    //MARK: Last Methods
     func presentLoginViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
         
         self.presentViewController(vc, animated: false, completion: nil)
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
