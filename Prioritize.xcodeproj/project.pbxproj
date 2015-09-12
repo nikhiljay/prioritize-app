@@ -11,6 +11,7 @@
 		313EEE491B562EC7007A3017 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */; };
 		313EEE4B1B567560007A3017 /* EditEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */; };
 		313EEE4D1B567AC3007A3017 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */; };
+		31436AE71B9FE75B0070EC06 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31436AE61B9FE75B0070EC06 /* Loading.swift */; };
 		3169A8451ADE410000CBB35B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8441ADE410000CBB35B /* LocalStore.swift */; };
 		3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8491ADE449300CBB35B /* DragDropBehavior.swift */; };
 		317E69D51AB7FB3500C40FA9 /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E69D41AB7FB3500C40FA9 /* MenuControl.swift */; };
@@ -90,6 +91,7 @@
 		313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEventTableViewController.swift; sourceTree = "<group>"; };
 		313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
+		31436AE61B9FE75B0070EC06 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		3169A8441ADE410000CBB35B /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		3169A8491ADE449300CBB35B /* DragDropBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropBehavior.swift; sourceTree = "<group>"; };
 		317E69D41AB7FB3500C40FA9 /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				317E69D41AB7FB3500C40FA9 /* MenuControl.swift */,
+				31436AE61B9FE75B0070EC06 /* Loading.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				31C83C0C1B59774F00F9A740 /* CreateAccountTableViewController.swift in Sources */,
 				31812A9F1ADAE99300D79540 /* SpringView.swift in Sources */,
 				31812A8C1ADAE99300D79540 /* DesignableLabel.swift in Sources */,
+				31436AE71B9FE75B0070EC06 /* Loading.swift in Sources */,
 				31812A9A1ADAE99300D79540 /* SpringButton.swift in Sources */,
 				31812A991ADAE99300D79540 /* SpringAnimation.swift in Sources */,
 				3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */,

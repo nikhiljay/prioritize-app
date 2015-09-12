@@ -101,7 +101,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if currentUser == nil {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
-            
             self.presentViewController(vc, animated: true, completion: nil)
         } else {
             let date = NSDate()
@@ -148,6 +147,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             events = currentUser["events"] as? [String]
             tableView.reloadData()
         }
+    }
+    
+    func showLoad() {
+        Loading.start()
+    }
+    
+    func hideLoad() {
+        Loading.stop()
     }
     
     //MARK: Table View Controller Methods
@@ -271,7 +278,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: Profile Button
     @IBAction func profilePressed(sender: AnyObject) {
-        print("profile pressed!")
         performSegueWithIdentifier("profilePressed", sender: self)
     }
     
@@ -281,11 +287,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
-    }
-    
-    func profilePressed() {
-        performSegueWithIdentifier("profilePressed", sender: self)
-        print("done")
     }
     
     //MARK: Menu Methods
@@ -300,6 +301,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func maskViewPressed(sender: AnyObject) {
         hideMenu()
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        showLoad()
+        performSegueWithIdentifier("ShowSettingsSegue", sender: self)
+        hideLoad()
     }
     
     func showMenu() {

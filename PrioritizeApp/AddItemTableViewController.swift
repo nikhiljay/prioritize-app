@@ -41,11 +41,11 @@ class AddItemTableViewController: UITableViewController {
     }
     
     func showLoad() {
-        view.showLoading()
+        Loading.start()
     }
     
     func hideLoad() {
-        view.hideLoading()
+        Loading.stop()
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {

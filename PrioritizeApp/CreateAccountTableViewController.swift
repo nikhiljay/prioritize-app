@@ -27,11 +27,11 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     }
     
     func showLoad() {
-        view.showLoading()
+        Loading.start()
     }
     
     func hideLoad() {
-        view.hideLoading()
+        Loading.stop()
     }
 
     @IBAction func AddImageButton(sender : AnyObject) {

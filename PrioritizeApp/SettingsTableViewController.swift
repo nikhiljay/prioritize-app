@@ -26,6 +26,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
     @IBOutlet weak var selectedImage: UIImageView!
     @IBOutlet weak var addPictureButton: UIButton!
     var imagePicker = UIImagePickerController()
+    var popover: UIPopoverController? = nil
     var finalImage: UIImage!
     
     var transitionManager = TransitionManager()
@@ -66,25 +67,75 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
         }
         self.selectedImage.layer.masksToBounds = true
         self.selectedImage.layer.cornerRadius = 5
-        
     }
     
     func showLoad() {
-        view.showLoading()
+        Loading.start()
     }
     
     func hideLoad() {
-        view.hideLoading()
+        Loading.stop()
     }
     
     @IBAction func AddImageButton(sender: AnyObject) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.allowsEditing = true
+        
+        let alert:UIAlertController = UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { UIAlertAction in
+                self.openCamera()
+        }
+        
+        let galleryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default){ UIAlertAction in
+                self.opengallery()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { UIAlertAction in }
+        // Add the actions
+        
+        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            alert.addAction(cameraAction)
+        }
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        
+        // Present the actionsheet
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            popover=UIPopoverController(contentViewController: alert)
+            popover!.presentPopoverFromRect(view.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func openCamera() {
+        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            self .presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            opengallery()
+        }
+    }
+    
+    func opengallery() {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+            
+        else {
+            popover = UIPopoverController(contentViewController: imagePicker)
+            popover!.presentPopoverFromRect(view.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             selectedImage.contentMode = .ScaleAspectFill
             selectedImage.image = image
             selectedImage.hidden = false
@@ -118,9 +169,11 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
             currentUser["profilePicture"] = imageFile
             dismissViewControllerAnimated(true, completion: nil)
             currentUser.saveInBackground()
+            hideLoad()
         } else {
             dismissViewControllerAnimated(true, completion: nil)
             currentUser.saveInBackground()
+            hideLoad()
         }
         
     }

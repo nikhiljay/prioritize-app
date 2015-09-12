@@ -93,7 +93,7 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyg-EH-dBk" userLabel="Main View" customClass="DesignableView" customModule="Prioritize" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="135" width="280" height="298"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" background="3EBE40B9-AD40-42F4-8FC5-92ADEB9E784C" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-JF-rIa" customClass="DesignableTextField" customModule="Prioritize" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" background="17331FB6-AF15-4E41-8802-2C0C040592A0" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-JF-rIa" customClass="DesignableTextField" customModule="Prioritize" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="82" width="250" height="44"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
@@ -106,7 +106,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" background="3EBE40B9-AD40-42F4-8FC5-92ADEB9E784C" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7At-jZ-SZV" customClass="DesignableTextField" customModule="Prioritize" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" background="17331FB6-AF15-4E41-8802-2C0C040592A0" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7At-jZ-SZV" customClass="DesignableTextField" customModule="Prioritize" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="136" width="250" height="44"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -119,13 +119,13 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="B0C5DE33-AE97-48F8-967C-EA37B3E8062C" translatesAutoresizingMaskIntoConstraints="NO" id="ba9-kl-OEM" customClass="SpringImageView" customModule="Prioritize" customModuleProvider="target">
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="4713EA1A-B4BA-43E8-9E60-B553F72FF938" translatesAutoresizingMaskIntoConstraints="NO" id="ba9-kl-OEM" customClass="SpringImageView" customModule="Prioritize" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="95" width="26" height="18"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="EB708D59-73AF-495A-9D1B-12FF58F5D926" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-E5-Wle" customClass="SpringImageView" customModule="Prioritize" customModuleProvider="target">
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="673B4B99-0E63-46CC-8FEA-632CA21EFBFB" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-E5-Wle" customClass="SpringImageView" customModule="Prioritize" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="146" width="25" height="25"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
@@ -2019,7 +2019,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="108-e0-jpd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="108-e0-jpd">
                                         <rect key="frame" x="270" y="26" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="U3E-Va-FEn"/>
@@ -2034,7 +2034,6 @@
                                     <constraint firstAttribute="height" constant="164" id="HWp-ZY-BiO"/>
                                     <constraint firstItem="H1n-Qw-Vqh" firstAttribute="centerX" secondItem="rhz-Cz-qeE" secondAttribute="centerX" id="Wpk-w4-BxP"/>
                                     <constraint firstAttribute="trailing" secondItem="108-e0-jpd" secondAttribute="trailing" constant="20" id="fkN-yo-20Z"/>
-                                    <constraint firstItem="108-e0-jpd" firstAttribute="top" secondItem="rhz-Cz-qeE" secondAttribute="top" constant="26" id="tM6-Rp-Wno"/>
                                     <constraint firstAttribute="bottom" secondItem="ng8-oV-xb2" secondAttribute="bottom" constant="38" id="wL0-Yz-KkO"/>
                                 </constraints>
                             </view>
@@ -2107,6 +2106,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="settingsButtonPressed:" destination="y38-AX-X8I" eventType="touchUpInside" id="7D9-0x-mmf"/>
                                             <segue destination="C8h-kP-OaE" kind="presentation" identifier="ShowSettingsSegue" id="i7v-VB-WCy"/>
                                         </connections>
                                     </button>
@@ -2270,7 +2270,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3EBE40B9-AD40-42F4-8FC5-92ADEB9E784C" width="7" height="44">
+        <image name="17331FB6-AF15-4E41-8802-2C0C040592A0" width="7" height="44">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGUVJYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEAcI
 FxgdIiMnKDAzNjw/S05VJG51bGzXCQoLDA0ODxAREhMUFRZWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxh
@@ -2345,7 +2345,7 @@ yw7TDuAO5Q7nDukO7g72DvkPBg8YDycPMg9GD1kPWw9kD20Pbw94D4EPhg+OD5EPlg+eD6EPsw+2D7sA
 AAAAAAACAQAAAAAAAABVAAAAAAAAAAAAAAAAAAAPvQ
 </mutableData>
         </image>
-        <image name="B0C5DE33-AE97-48F8-967C-EA37B3E8062C" width="26" height="18">
+        <image name="4713EA1A-B4BA-43E8-9E60-B553F72FF938" width="26" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -2446,7 +2446,7 @@ AK0AxADGAMgVKhUvFToVQxVWFVoVbRV4FYEVhhWOFZEVlhWlFakVsBW4FcUVyhXMFc4V0xXbFd4V4xXr
 Fe4WABYDFggAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAAWCg
 </mutableData>
         </image>
-        <image name="EB708D59-73AF-495A-9D1B-12FF58F5D926" width="25" height="25">
+        <image name="673B4B99-0E63-46CC-8FEA-632CA21EFBFB" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -2586,7 +2586,7 @@ AAAAAAAAGH4
         <image name="sign in" width="650" height="110"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8t6-vZ-Ola"/>
+        <segue reference="i7v-VB-WCy"/>
         <segue reference="stE-h5-DFU"/>
     </inferredMetricsTieBreakers>
 </document>
