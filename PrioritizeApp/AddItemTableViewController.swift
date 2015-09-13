@@ -119,6 +119,7 @@ class AddItemTableViewController: UITableViewController {
             currentUser.saveInBackground()
             
             self.dismissViewControllerAnimated(true, completion: nil)
+            hideLoad()
         }
     }
     

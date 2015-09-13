@@ -11,7 +11,7 @@ import Parse
 import MapKit
 import CoreLocation
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     //MARK: Definitions
     @IBOutlet var tableView: UITableView!
@@ -33,9 +33,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var addresses: [String]?
     var startTimes: [String]?
     var endTimes: [String]?
+    var distances: [Int]?
+    
+    var addressIndex: Int?
+    var firstEvent: Bool = false
     
     var refreshControl = UIRefreshControl()
     var transitionManager = TransitionManager()
+    let locationManager = CLLocationManager()
+    var userLocation: CLLocation!
     
     //MARK: Main Methods
     override func viewDidLoad() {
@@ -132,6 +138,22 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 })
             }
         }
+        
+        //Map Stuff
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
+            self.locationManager.requestWhenInUseAuthorization()
+        } else {
+            if #available(iOS 9.0, *) {
+                self.locationManager.requestLocation()
+            }
+        }
+
+        calculateDistance()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -235,10 +257,22 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         let currentUser = PFUser.currentUser()
         
-        let movedObject = self.events![sourceIndexPath.row]
+        let eventMovedObject = self.events![sourceIndexPath.row]
         events!.removeAtIndex(sourceIndexPath.row)
-        events!.insert(movedObject, atIndex: destinationIndexPath.row)
+        events!.insert(eventMovedObject, atIndex: destinationIndexPath.row)
         
+        let startTimeMovedObject = self.startTimes![sourceIndexPath.row]
+        startTimes!.removeAtIndex(sourceIndexPath.row)
+        startTimes!.insert(startTimeMovedObject, atIndex: destinationIndexPath.row)
+
+        let endTimeMovedObject = self.endTimes![sourceIndexPath.row]
+        endTimes!.removeAtIndex(sourceIndexPath.row)
+        endTimes!.insert(endTimeMovedObject, atIndex: destinationIndexPath.row)
+        
+        let addressMovedObject = self.addresses![sourceIndexPath.row]
+        addresses!.removeAtIndex(sourceIndexPath.row)
+        addresses!.insert(addressMovedObject, atIndex: destinationIndexPath.row)
+
         currentUser.saveInBackground()
     }
     
@@ -258,8 +292,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let currentUser = PFUser.currentUser()
         
         tableView.setEditing(false, animated: true)
-        navigationBar.rightBarButtonItem = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profilePressed")
+        let profileButton = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profileButtonPressed")
+        navigationBar.rightBarButtonItem = profileButton
         currentUser["events"] = events
+        currentUser["startTimes"] = startTimes
+        currentUser["endTimes"] = endTimes
+        currentUser["addresses"] = addresses
+        
         profileImage.hidden = false
         
         currentUser.saveInBackground()
@@ -276,9 +315,59 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.refreshControl.endRefreshing()
     }
     
+    //MARK: Map Methods
+    func calculateDistance() {
+        let currentUser = PFUser.currentUser()
+        currentUser.refresh()
+        
+        events = currentUser["events"] as? [String]
+        addresses = currentUser["addresses"] as? [String]
+        distances = currentUser["distances"] as? [Int]
+    }
+    
+    var destinationPlacemark: CLPlacemark? {
+        didSet {
+            updateDistanceToPlace()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            manager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        updateDistanceToPlace()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: " + error.localizedDescription)
+    }
+    
+    func updateDistanceToPlace() {
+        if let userLocation = locationManager.location {
+            if let place = destinationPlacemark {
+                let distance = userLocation.distanceFromLocation(place.location!)
+//                print(Int((floor(distance/1609.34))))
+            }
+            
+            locationManager.stopUpdatingLocation()
+        }
+    }
+    
+    
     //MARK: Profile Button
     @IBAction func profilePressed(sender: AnyObject) {
+        showLoad()
         performSegueWithIdentifier("profilePressed", sender: self)
+        hideLoad()
+    }
+    
+    func profileButtonPressed() {
+        showLoad()
+        performSegueWithIdentifier("profilePressed", sender: self)
+        hideLoad()
     }
     
     func imageWithImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {

@@ -207,7 +207,7 @@ class EditEventTableViewController: UITableViewController {
             }
 
             self.dismissViewControllerAnimated(true, completion: nil)
-            
+            hideLoad()
             currentUser.saveInBackground()
         }
     }

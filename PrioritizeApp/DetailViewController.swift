@@ -134,6 +134,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         locationMapView.delegate = self
         locationMapView.layer.cornerRadius = 5.0
+        locationMapView.removeAnnotations(locationMapView.annotations)
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
