@@ -16,7 +16,7 @@ $ cd prioritize-app
 2) Open the project in Xcode
 
 ```
-$ open PrioritizeApp.xcodeproj
+$ open Prioritize.xcodeproj
 ```
 
 3) Compile and run the app in your simulator
