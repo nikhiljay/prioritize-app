@@ -18,6 +18,8 @@ class AddItemTableViewController: UITableViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var allDaySwitch: UISwitch!
     
+    var viewModel = ItemsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +58,8 @@ class AddItemTableViewController: UITableViewController {
         let addressText = locationTextField.text!
         let startTimesText = startTimeTextField.text!
         let endTimesText = endTimeTextField.text!
+        
+        viewModel.append(nameText)
         
         var events:[String]
         var addresses: [String]

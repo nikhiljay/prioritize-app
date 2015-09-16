@@ -4,10 +4,45 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Prioritize.xcscheme</key>
+		<key>Complication - watchapp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>Glance - Prioritize WatchKit 1 App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Glance - watchapp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Notification - Prioritize WatchKit 1 App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Notification - watchapp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Prioritize WatchKit 1 App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Prioritize.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>watchapp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +53,11 @@
 			<true/>
 		</dict>
 		<key>31048AAC1B294483005A1D75</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>311A2DE51BA932540078422E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
