@@ -1,9 +1,9 @@
 //
 //  ItemsViewModel.swift
-//  DataSharing
+//  Prioritize
 //
-//  Created by Konstantin Koval on 15/12/14.
-//  Copyright (c) 2014 Konstantin Koval. All rights reserved.
+//  Created by Nikhil D'Souza on 9/15/15.
+//  Copyright © 2015 Prioritize. All rights reserved.
 //
 
 import Foundation

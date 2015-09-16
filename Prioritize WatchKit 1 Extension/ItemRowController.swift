@@ -1,9 +1,9 @@
 //
 //  ItemRowController.swift
-//  DataSharing
+//  Prioritize WatchKit 1 Extension
 //
-//  Created by Konstantin Koval on 16/12/14.
-//  Copyright (c) 2014 Konstantin Koval. All rights reserved.
+//  Created by Nikhil D'Souza on 9/15/15.
+//  Copyright © 2015 Prioritize. All rights reserved.
 //
 
 import Foundation

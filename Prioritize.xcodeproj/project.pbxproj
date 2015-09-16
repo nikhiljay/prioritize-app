@@ -126,7 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		311A2DD21BA932390078422E /* Prioritize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Prioritize.entitlements; sourceTree = "<group>"; };
+		311A2DD21BA932390078422E /* Prioritize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Prioritize.entitlements; path = ../Prioritize.entitlements; sourceTree = "<group>"; };
 		311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Prioritize WatchKit 1 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		311A2DDA1BA932540078422E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		311A2DDB1BA932540078422E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -356,7 +356,6 @@
 		31B12B7E1AA29E4E00C6B2C9 = {
 			isa = PBXGroup;
 			children = (
-				311A2DD21BA932390078422E /* Prioritize.entitlements */,
 				31B12C1A1AA2B01800C6B2C9 /* Frameworks */,
 				31DBC9411AB28CEF00B1C693 /* Libraries */,
 				317E69D81AB7FB4800C40FA9 /* Views */,
@@ -384,6 +383,7 @@
 		31B12B891AA29E4E00C6B2C9 /* PrioritizeApp */ = {
 			isa = PBXGroup;
 			children = (
+				311A2DD21BA932390078422E /* Prioritize.entitlements */,
 				31B12BB21AA29F7500C6B2C9 /* AppDelegate.swift */,
 				31B12BB71AA29F7500C6B2C9 /* NavigationViewController.swift */,
 				31B12BB51AA29F7500C6B2C9 /* LoginViewController.swift */,
@@ -933,6 +933,7 @@
 				311A2DF61BA932540078422E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		311A2DF71BA932540078422E /* Build configuration list for PBXNativeTarget "Prioritize WatchKit 1 Extension" */ = {
 			isa = XCConfigurationList;
@@ -941,6 +942,7 @@
 				311A2DF91BA932540078422E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31B12B821AA29E4E00C6B2C9 /* Build configuration list for PBXProject "Prioritize" */ = {
 			isa = XCConfigurationList;
