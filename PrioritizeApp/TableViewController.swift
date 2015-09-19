@@ -142,23 +142,24 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
                 })
             }
-        }
-        
-        //Map Stuff
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
+            
+            //Map Stuff
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestWhenInUseAuthorization()
-        } else {
-            if #available(iOS 9.0, *) {
-                self.locationManager.requestLocation()
+            self.locationManager.startUpdatingLocation()
+            
+            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
+                self.locationManager.requestWhenInUseAuthorization()
+            } else {
+                if #available(iOS 9.0, *) {
+                    self.locationManager.requestLocation()
+                }
             }
+            
+            calculateDistance()
         }
-
-        calculateDistance()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
