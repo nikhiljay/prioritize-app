@@ -121,7 +121,7 @@ class AddItemTableViewController: UITableViewController {
             currentUser["endTimes"] = endTimes
             
             currentUser.saveInBackground()
-            
+            SoundPlayer.playDone()
             self.dismissViewControllerAnimated(true, completion: nil)
             hideLoad()
         }

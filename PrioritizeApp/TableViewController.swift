@@ -59,7 +59,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             currentUser.refresh()
             
             if !LocalStore.isWalkthroughVisited() {
-//                showWalkthrough()
+                performSegueWithIdentifier("IntroSegue", sender: self)
                 LocalStore.setWalkthroughAsVisited()
             }
             
@@ -98,6 +98,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             dayLabel.text = dayOfWeekString
             dateLabel.text = "\(month) \(day), \(year)"
+            
         }
         
     }
@@ -298,6 +299,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let currentUser = PFUser.currentUser()
         
         tableView.setEditing(false, animated: true)
+        SoundPlayer.playDone()
         let profileButton = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profileButtonPressed")
         navigationBar.rightBarButtonItem = profileButton
         currentUser["events"] = events
@@ -317,8 +319,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let refreshedEvents = currentUser["events"] as? [String] {
             events = refreshedEvents
         }
+        
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
+        SoundPlayer.playRefresh()
     }
     
     //MARK: Map Methods

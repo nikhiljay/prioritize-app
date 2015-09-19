@@ -18,17 +18,17 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var startTimeIndex: Int?
     var endTimeIndex: Int?
     
-    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventTitleLabel: SpringLabel!
     @IBOutlet weak var locationMapView: MKMapView!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: SpringLabel!
+    @IBOutlet weak var endTimeLabel: SpringLabel!
     @IBOutlet weak var totalDriveTime: UILabel!
     @IBOutlet weak var storeOpenTime: UILabel!
     @IBOutlet weak var storeCloseTime: UILabel!
     @IBOutlet weak var appleMapsButton: UIButton!
     @IBOutlet weak var noAddressLabel: UILabel!
     @IBOutlet weak var fromLabel: UILabel!
-    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var toLabel: SpringLabel!
     
     var currentUser = PFUser.currentUser()
     let transitionManager = TransitionManager()
@@ -39,8 +39,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(userLocation)
         
         appleMapsButton.layer.borderColor = UIColor.whiteColor().CGColor
         appleMapsButton.layer.borderWidth = 1
@@ -57,7 +55,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         if let events = currentUser["events"] as? [String] {
             if eventIndex != nil {
                 eventTitle = events[eventIndex!]
-                
             }
         }
         
@@ -119,6 +116,18 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         eventTitleLabel.text = eventTitle
         startTimeLabel.text = startTime
         endTimeLabel.text = endTime
+        
+        eventTitleLabel.hidden = false
+        eventTitleLabel.animate()
+        
+        startTimeLabel.hidden = false
+        startTimeLabel.animate()
+        
+        toLabel.hidden = false
+        toLabel.animate()
+        
+        endTimeLabel.hidden = false
+        endTimeLabel.animate()
         
         //MAPVIEW
         //If no address, then don't show the MapView.
