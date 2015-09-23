@@ -11,6 +11,8 @@ import Parse
 import MapKit
 import CoreLocation
 
+let addItemSegue = "AddItemSegue"
+
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     //MARK: Definitions

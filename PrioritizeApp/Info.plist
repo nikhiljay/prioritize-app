@@ -51,5 +51,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>reverse.domain.addnew</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add New Task</string>
+		</dict>
+	</array>
 </dict>
 </plist>

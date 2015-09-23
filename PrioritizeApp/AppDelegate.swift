@@ -13,6 +13,11 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
+    
+    enum ShortcutType: String {
+        case AddNew = "reverse.domain.addnew"
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,21 +27,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (PFUser.currentUser() == nil) {
             presentLoginViewController()
         }
-
-        return true
+        
+        var launchedFromShortCut = false
+        //Check for ShortCutItem
+        if #available(iOS 9.0, *) {
+            if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+                launchedFromShortCut = true
+                handleShortCutItem(shortcutItem)
+            }
+        } else {}
+        
+        return !launchedFromShortCut
     }
     
     func presentLoginViewController() {
-        
         if PFUser.currentUser() == nil {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
-        
+            
             self.window?.rootViewController?.presentViewController(vc, animated: false, completion: nil)
         }
+    }
+    
+    //MARK: Short Cut Item Methods
+    @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) {
+        let handledShortCutItem = handleShortCutItem(shortcutItem)
+        completionHandler(handledShortCutItem)
+    }
+    
+    @available(iOS 9.0, *)
+    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        var handled = false
+        //Get type string from shortcutItem
+        if let shortcutType = ShortcutType.init(rawValue: shortcutItem.type) {
+            //Get root navigation viewcontroller and its first controller
+            let rootNavigationViewController = window!.rootViewController as? UINavigationController
+            let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
+            //Pop to root view controller so that approperiete segue can be performed
+            rootNavigationViewController?.popToRootViewControllerAnimated(false)
+            
+            switch shortcutType {
+            case .AddNew:
+                rootViewController?.performSegueWithIdentifier(addItemSegue, sender: nil)
+                handled = true
+            }
+        }
         
+        return handled
     }
 
+    //MARK: Other Methods
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
