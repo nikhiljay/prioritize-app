@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Spring
 
 class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -167,13 +168,13 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
             let imageData = UIImageJPEGRepresentation(self.finalImage, 0.1)
             let imageFile: PFFile = PFFile(data: imageData)
             currentUser["profilePicture"] = imageFile
-            SoundPlayer.playDone()
+            SoundPlayer().playDone()
             dismissViewControllerAnimated(true, completion: nil)
             currentUser.saveInBackground()
             hideLoad()
         } else {
             dismissViewControllerAnimated(true, completion: nil)
-            SoundPlayer.playDone()
+            SoundPlayer().playDone()
             currentUser.saveInBackground()
             hideLoad()
         }

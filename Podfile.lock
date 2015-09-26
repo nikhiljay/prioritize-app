@@ -1,0 +1,23 @@
+PODS:
+  - Spring (1.0.3)
+  - TPKeyboardAvoiding (1.2.9)
+
+DEPENDENCIES:
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - TPKeyboardAvoiding
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
+
+COCOAPODS: 0.38.2

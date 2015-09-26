@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import MapKit
 import CoreLocation
+import Spring
 
 let addItemSegue = "AddItemSegue"
 
@@ -302,7 +303,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let currentUser = PFUser.currentUser()
         
         tableView.setEditing(false, animated: true)
-        SoundPlayer.playDone()
+        SoundPlayer().playDone()
         let profileButton = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profileButtonPressed")
         navigationBar.rightBarButtonItem = profileButton
         currentUser["events"] = events
@@ -325,7 +326,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
-        SoundPlayer.playRefresh()
+        SoundPlayer().playRefresh()
     }
     
     //MARK: Map Methods

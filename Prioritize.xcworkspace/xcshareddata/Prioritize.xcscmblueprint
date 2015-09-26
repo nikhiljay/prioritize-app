@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1E412BCC90DD01E8505FCDE25277691E6BA288F3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "915F6E5783A989E7E049979A6A014EA981E79FD7" : 0,
+    "1E412BCC90DD01E8505FCDE25277691E6BA288F3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E4691ABD-CA49-478D-B539-01B0E04C5E66",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "915F6E5783A989E7E049979A6A014EA981E79FD7" : "",
+    "1E412BCC90DD01E8505FCDE25277691E6BA288F3" : "PrioritizeApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Prioritize",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Prioritize.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nikhiljay\/prioritize-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1E412BCC90DD01E8505FCDE25277691E6BA288F3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pugi777\/taekare.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "915F6E5783A989E7E049979A6A014EA981E79FD7"
+    }
+  ]
+}

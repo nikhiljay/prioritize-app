@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Spring
 
 class CreateAccountTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -16,6 +17,13 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var selectedImage: UIImageView!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var usernameTableCell: UITableViewCell!
+    @IBOutlet weak var passwordTableCell: UITableViewCell!
+    @IBOutlet weak var emailTableCell: UITableViewCell!
+    @IBOutlet weak var emptyTableCell: UITableViewCell!
+    @IBOutlet weak var topView: UIView!
+    
     var imagePicker = UIImagePickerController()
     var finalImage: UIImage!
     
@@ -24,6 +32,8 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         selectedImage.hidden = true
         self.selectedImage.layer.masksToBounds = true
         self.selectedImage.layer.cornerRadius = 5
+        
+        bottomView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height-(topView.frame.height+usernameTableCell.frame.height+passwordTableCell.frame.height+emailTableCell.frame.height+emptyTableCell.frame.height))
     }
     
     func showLoad() {

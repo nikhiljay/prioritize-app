@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Spring
 
 extension SoundPlayer {
 
-    static func playRefresh() {
+    func playRefresh() {
         self.playSound("refresh.wav")
     }
     
-    static func playDone() {
+    func playDone() {
         self.playSound("done.wav")
     }
     

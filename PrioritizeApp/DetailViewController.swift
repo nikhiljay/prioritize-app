@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Parse
+import Spring
 
 class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
