@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5669D26068B1E3330C39E8E8"
-               BuildableName = "Pods_Prioritize.framework"
-               BlueprintName = "Pods-Prioritize"
+               BlueprintIdentifier = "D6ADACC473919A11473B589F"
+               BuildableName = "JSBadgeView.framework"
+               BlueprintName = "JSBadgeView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

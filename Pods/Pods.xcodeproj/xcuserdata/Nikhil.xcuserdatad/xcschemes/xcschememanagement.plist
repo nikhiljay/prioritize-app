@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSBadgeView-JSBadgeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSBadgeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Prioritize.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2163CC1B6A745F55F888D1FC069BED24</key>
+		<key>0F80EFCFE2B684072B5A50D90409A061</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>230669AFBB85CF3FAEA57089F26363C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,7 +52,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B0DF1EA85970E296FE2BE4D852434E7</key>
+		<key>6B6C385A1101F186E169083B823BC7DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD99AF255E6565012B09E7A53C3044A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

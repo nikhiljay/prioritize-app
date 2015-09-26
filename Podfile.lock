@@ -14,11 +14,13 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
+  - JSBadgeView (1.4.1)
   - Spring (1.0.3)
   - TPKeyboardAvoiding (1.2.9)
 
 DEPENDENCIES:
   - FontAwesomeKit
+  - JSBadgeView
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - TPKeyboardAvoiding
 
@@ -34,6 +36,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
+  JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
 

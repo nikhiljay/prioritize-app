@@ -11,6 +11,7 @@ import Parse
 import MapKit
 import CoreLocation
 import Spring
+import JSBadgeView
 
 let addItemSegue = "AddItemSegue"
 
@@ -145,6 +146,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
                 })
             }
+            
+            //Badge View Code (right now of number of elements in events array)
+            
+            /*
+            let newView: UIView = UIView(frame: CGRect(x: profileImage.frame.origin.x, y: profileImage.frame.origin.y, width: profileImage.frame.width, height: profileImage.frame.height))
+            newView.backgroundColor = UIColor.clearColor()
+            view.addSubview(newView)
+            
+            let badgeView: JSBadgeView = JSBadgeView(parentView: newView, alignment: .TopRight)
+            badgeView.badgeText = String(events!.count)
+            */
             
             //Map Stuff
             self.locationManager.delegate = self

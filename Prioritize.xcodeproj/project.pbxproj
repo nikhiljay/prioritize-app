@@ -99,7 +99,7 @@
 
 /* Begin PBXFileReference section */
 		19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prioritize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3114ADEA1BB7596600FB7342 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		3114ADEA1BB7596600FB7342 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = PrioritizeApp/FontAwesome.otf; sourceTree = "<group>"; };
 		311A2DD21BA932390078422E /* Prioritize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Prioritize.entitlements; path = ../Prioritize.entitlements; sourceTree = "<group>"; };
 		311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Prioritize WatchKit 1 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		311A2DDA1BA932540078422E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -188,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3114AE161BB7617100FB7342 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3114ADEA1BB7596600FB7342 /* FontAwesome.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		311A2DD81BA932540078422E /* Prioritize WatchKit 1 Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +273,7 @@
 				317E69D81AB7FB4800C40FA9 /* Views */,
 				31A5D4CB1ABBD85D008FDFC1 /* Sounds */,
 				3169A8461ADE42EC00CBB35B /* Extra Files */,
+				3114AE161BB7617100FB7342 /* Fonts */,
 				3169A84B1ADE449600CBB35B /* Behaviors */,
 				31B12B891AA29E4E00C6B2C9 /* PrioritizeApp */,
 				31B12B9F1AA29E4E00C6B2C9 /* PrioritizeAppTests */,
@@ -312,7 +321,6 @@
 		31B12B8A1AA29E4E00C6B2C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3114ADEA1BB7596600FB7342 /* FontAwesome.otf */,
 				31B12BC41AA29F8A00C6B2C9 /* Info.plist */,
 			);
 			name = "Supporting Files";

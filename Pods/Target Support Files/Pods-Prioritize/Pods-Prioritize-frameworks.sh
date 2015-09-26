@@ -53,11 +53,13 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Prioritize/FontAwesomeKit.framework'
+  install_framework 'Pods-Prioritize/JSBadgeView.framework'
   install_framework 'Pods-Prioritize/Spring.framework'
   install_framework 'Pods-Prioritize/TPKeyboardAvoiding.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Prioritize/FontAwesomeKit.framework'
+  install_framework 'Pods-Prioritize/JSBadgeView.framework'
   install_framework 'Pods-Prioritize/Spring.framework'
   install_framework 'Pods-Prioritize/TPKeyboardAvoiding.framework'
 fi
