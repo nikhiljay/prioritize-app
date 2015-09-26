@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3114ADEB1BB7596600FB7342 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3114ADEA1BB7596600FB7342 /* FontAwesome.otf */; settings = {ASSET_TAGS = (); }; };
 		311A2DDC1BA932540078422E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDB1BA932540078422E /* InterfaceController.swift */; };
 		311A2DDE1BA932540078422E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDD1BA932540078422E /* NotificationController.swift */; };
 		311A2DE01BA932540078422E /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDF1BA932540078422E /* GlanceController.swift */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prioritize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3114ADEA1BB7596600FB7342 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		311A2DD21BA932390078422E /* Prioritize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Prioritize.entitlements; path = ../Prioritize.entitlements; sourceTree = "<group>"; };
 		311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Prioritize WatchKit 1 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		311A2DDA1BA932540078422E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		31B12B8A1AA29E4E00C6B2C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3114ADEA1BB7596600FB7342 /* FontAwesome.otf */,
 				31B12BC41AA29F8A00C6B2C9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -507,6 +510,7 @@
 				319AF57D1B790CF400776094 /* Info.plist in Resources */,
 				31B12BC91AA29FB000C6B2C9 /* Main.storyboard in Resources */,
 				31A5D4CF1ABBD85D008FDFC1 /* done.wav in Resources */,
+				3114ADEB1BB7596600FB7342 /* FontAwesome.otf in Resources */,
 				31B12C1D1AA2B2DB00C6B2C9 /* Images.xcassets in Resources */,
 				31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */,
 				31B12BC81AA29FB000C6B2C9 /* LaunchScreen.xib in Resources */,

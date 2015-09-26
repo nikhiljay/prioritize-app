@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5300A92E61F0F99FE68EDA0F"
-               BuildableName = "Pods_Prioritize.framework"
-               BlueprintName = "Pods-Prioritize"
+               BlueprintIdentifier = "6CC03661546F77BEFDDC4238"
+               BuildableName = "FontAwesomeKit.framework"
+               BlueprintName = "FontAwesomeKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

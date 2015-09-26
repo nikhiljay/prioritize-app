@@ -1,8 +1,24 @@
 PODS:
+  - FontAwesomeKit (2.2.0):
+    - FontAwesomeKit/Core (= 2.2.0)
+    - FontAwesomeKit/FontAwesome (= 2.2.0)
+    - FontAwesomeKit/FoundationIcons (= 2.2.0)
+    - FontAwesomeKit/IonIcons (= 2.2.0)
+    - FontAwesomeKit/Zocial (= 2.2.0)
+  - FontAwesomeKit/Core (2.2.0)
+  - FontAwesomeKit/FontAwesome (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.2.0):
+    - FontAwesomeKit/Core
   - Spring (1.0.3)
   - TPKeyboardAvoiding (1.2.9)
 
 DEPENDENCIES:
+  - FontAwesomeKit
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - TPKeyboardAvoiding
 
@@ -17,6 +33,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
 
