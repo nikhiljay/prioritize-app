@@ -26,7 +26,13 @@ class AddItemTableViewController: UITableViewController {
         
         allDay()
         allDaySwitch.addTarget(self, action: "allDay", forControlEvents:UIControlEvents.ValueChanged)
-
+        
+        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func tapReceived() {
+        view.endEditing(true)
     }
     
     func allDay() {
@@ -126,15 +132,6 @@ class AddItemTableViewController: UITableViewController {
             self.dismissViewControllerAnimated(true, completion: nil)
             hideLoad()
         }
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return false;
     }
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {

@@ -68,6 +68,14 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
         }
         self.selectedImage.layer.masksToBounds = true
         self.selectedImage.layer.cornerRadius = 5
+        
+        tableView.scrollEnabled = false
+        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func tapReceived() {
+        view.endEditing(true)
     }
     
     func showLoad() {
@@ -266,15 +274,6 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
         alert.addAction(actionLeft)
         alert.addAction(actionRight)
         self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return false;
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

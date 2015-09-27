@@ -27,6 +27,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         keyboardDown = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func tapReceived() {
+        view.endEditing(true)
+        keyboardDown = true
     }
     
     func showLoad() {
@@ -66,11 +74,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         lineView.animate()
         usernameImageView.animate()
         passwordImageView.animate()
-    }
-    
-    func handleSingleTap(recognizer: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-        keyboardDown = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

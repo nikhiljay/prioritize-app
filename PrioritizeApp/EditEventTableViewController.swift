@@ -79,6 +79,13 @@ class EditEventTableViewController: UITableViewController {
         }
         
         allDaySwitch.addTarget(self, action: "allDay", forControlEvents:UIControlEvents.ValueChanged)
+        
+        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func tapReceived() {
+        view.endEditing(true)
     }
     
     func allDay() {
@@ -211,19 +218,6 @@ class EditEventTableViewController: UITableViewController {
             hideLoad()
             currentUser.saveInBackground()
         }
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return false;
-    }
-    
-    func handleSingleTap(recognizer: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
 
 }

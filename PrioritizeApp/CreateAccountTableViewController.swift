@@ -34,6 +34,13 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         self.selectedImage.layer.cornerRadius = 5
         
         bottomView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height-(topView.frame.height+usernameTableCell.frame.height+passwordTableCell.frame.height+emailTableCell.frame.height+emptyTableCell.frame.height))
+        
+        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func tapReceived() {
+        view.endEditing(true)
     }
     
     func showLoad() {
