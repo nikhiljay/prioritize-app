@@ -19,4 +19,8 @@ extension SoundPlayer {
         self.playSound("done.wav")
     }
     
+    func playRejected() {
+        self.playSound("rejected.aif")
+    }
+    
 }

@@ -53,6 +53,7 @@
 		31C83C0C1B59774F00F9A740 /* CreateAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C83C0B1B59774F00F9A740 /* CreateAccountTableViewController.swift */; };
 		31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31CC1CA51B28BA9400E238F2 /* MapKit.framework */; };
 		31DE231B1BB746CE00BFBCF4 /* SoundPlayer+Prioritize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+Prioritize.swift */; settings = {ASSET_TAGS = (); }; };
+		31E9194D1BC4DDDF00F151FE /* rejected.aif in Resources */ = {isa = PBXBuildFile; fileRef = 31E9194C1BC4DDDF00F151FE /* rejected.aif */; settings = {ASSET_TAGS = (); }; };
 		34ABC05B79662BCBAA4BB9B9 /* Pods_Prioritize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -153,6 +154,7 @@
 		31B12C1C1AA2B2DB00C6B2C9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		31C83C0B1B59774F00F9A740 /* CreateAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewController.swift; sourceTree = "<group>"; };
 		31CC1CA51B28BA9400E238F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		31E9194C1BC4DDDF00F151FE /* rejected.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = rejected.aif; sourceTree = "<group>"; };
 		5E50EB26D4C78A09DC78477A /* Pods-Prioritize.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prioritize.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prioritize/Pods-Prioritize.debug.xcconfig"; sourceTree = "<group>"; };
 		83D1EF22E2FC634DB291BF1B /* Pods-Prioritize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prioritize.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prioritize/Pods-Prioritize.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,6 +264,7 @@
 				31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+Prioritize.swift */,
 				31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */,
 				31A5D4CD1ABBD85D008FDFC1 /* done.wav */,
+				31E9194C1BC4DDDF00F151FE /* rejected.aif */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				3114ADEB1BB7596600FB7342 /* FontAwesome.otf in Resources */,
 				31B12C1D1AA2B2DB00C6B2C9 /* Images.xcassets in Resources */,
 				31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */,
+				31E9194D1BC4DDDF00F151FE /* rejected.aif in Resources */,
 				31B12BC81AA29FB000C6B2C9 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

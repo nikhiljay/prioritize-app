@@ -51,6 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text, block: { (user,error) in
             if error != nil {
                 self.shakeMainView()
+                SoundPlayer().playRejected()
                 self.hideLoad()
             } else {
                 self.performSegueWithIdentifier("loggedIn", sender: self)
