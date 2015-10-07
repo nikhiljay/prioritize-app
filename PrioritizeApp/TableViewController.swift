@@ -12,10 +12,11 @@ import MapKit
 import CoreLocation
 import Spring
 import JSBadgeView
+import SafariServices
 
 let addItemSegue = "AddItemSegue"
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, SFSafariViewControllerDelegate {
     
     //MARK: Definitions
     @IBOutlet var tableView: UITableView!
@@ -179,6 +180,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         let currentUser = PFUser.currentUser()
         
         if currentUser == nil {
@@ -422,6 +424,30 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         showLoad()
         performSegueWithIdentifier("ShowSettingsSegue", sender: self)
         hideLoad()
+    }
+    
+    
+    @IBAction func aboutUsButtonPressed(sender: AnyObject) {
+        if #available(iOS 9.0, *) {
+            let url = NSURL(string: "http://nikhiljay.com")!
+            let safariVC = SFSafariViewController(URL: url)
+            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
+            
+            self.presentViewController(safariVC, animated: true, completion: nil)
+            safariVC.delegate = self
+        } else {
+            performSegueWithIdentifier("ShowWebSegue", sender: self)
+        }
+    }
+    
+    @available(iOS 9.0, *)
+    func safariViewController(controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
+        print(__FUNCTION__+"\n")
+    }
+    
+    @available(iOS 9.0, *)
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func showMenu() {

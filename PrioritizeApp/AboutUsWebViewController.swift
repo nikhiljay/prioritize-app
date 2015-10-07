@@ -29,11 +29,10 @@ class AboutUsWebViewController: UIViewController, UIWebViewDelegate {
         webView.delegate = self
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
     }
-    
+
     @IBAction func shareButtonPressed(sender: AnyObject) {
         let shareString = self.shareTitle ?? ""
         let shareURL = self.url
