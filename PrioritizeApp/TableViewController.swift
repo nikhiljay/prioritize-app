@@ -320,14 +320,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         SoundPlayer().playDone()
         let profileButton = UIBarButtonItem(title: "            ", style: .Plain, target: self, action: "profileButtonPressed")
         navigationBar.rightBarButtonItem = profileButton
-        currentUser["events"] = events
-        currentUser["startTimes"] = startTimes
-        currentUser["endTimes"] = endTimes
-        currentUser["addresses"] = addresses
         
         profileImage.hidden = false
         
-        currentUser.saveInBackground()
+        if events?.count != 0 {
+            currentUser["events"] = events
+            currentUser["startTimes"] = startTimes
+            currentUser["endTimes"] = endTimes
+            currentUser["addresses"] = addresses
+
+            currentUser.saveInBackground()
+        }
     }
     
     func refresh(sender: AnyObject) {
