@@ -410,7 +410,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //MARK: Menu Methods
-    @IBAction func menuButtonPressed(sender: AnyObject) {
+    @IBAction func menuButtonPressed(sender: DOHamburgerButton) {
+        if sender.selected {
+            sender.deselect()
+        } else {
+            sender.select()
+        }
+        
         if maskView.hidden == true {
             showMenu()
             showMask()
