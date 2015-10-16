@@ -228,7 +228,7 @@ public class Spring : NSObject {
             case .Fall:
                 animateFrom = false
                 rotate = 15 * CGFloat(M_PI/180)
-                y = 600*force
+//                y = 600*force
             case .Shake:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "position.x"

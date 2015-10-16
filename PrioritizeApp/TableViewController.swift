@@ -20,7 +20,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: Definitions
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButton: DOHamburgerButton!
     @IBOutlet weak var menuView: DesignableView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
@@ -427,6 +427,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func maskViewPressed(sender: AnyObject) {
         hideMenu()
+        
+        if menuButton.selected {
+            menuButton.deselect()
+        } else {
+            menuButton.select()
+        }
     }
     
     @IBAction func settingsButtonPressed(sender: AnyObject) {
@@ -473,6 +479,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func hideMenu() {
         menuView.animation = "fall"
+        menuView.y = 700 * menuView.force
         menuView.animate()
         maskView.hidden = true
     }
