@@ -45,7 +45,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var refreshControl = UIRefreshControl()
     var transitionManager = TransitionManager()
-    var viewModel = ItemsViewModel()
     let locationManager = CLLocationManager()
     var userLocation: CLLocation!
     
@@ -117,12 +116,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.presentViewController(vc, animated: true, completion: nil)
         } else {
             events = currentUser["events"] as? [String]
-            viewModel.addArray(events!)
             
             let date = NSDate()
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-            let time = dateFormatter.stringFromDate(date)
 //            print(time)
             
             if let name = currentUser["name"] as? String {
@@ -205,8 +202,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: Table View Controller Methods
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let currentUser = PFUser.currentUser()
-        
-        viewModel.removeItemAt(indexPath.row)
         
         events = currentUser["events"] as? [String]
         if editingStyle == UITableViewCellEditingStyle.Delete {

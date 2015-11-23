@@ -70,7 +70,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
         self.selectedImage.layer.cornerRadius = 5
         
         tableView.scrollEnabled = false
-        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -268,7 +268,9 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate, U
         let alert = UIAlertController(title: "Are you sure?", message: "This will permanently delete your account.", preferredStyle: UIAlertControllerStyle.Alert)
         let actionLeft = UIAlertAction(title: "No", style: .Cancel) { action in }
         let actionRight = UIAlertAction(title: "Yes", style: .Destructive) { action in
-            currentUser.deleteInBackground()
+            self.showLoad()
+            currentUser.delete()
+            self.hideLoad()
             self.performSegueWithIdentifier("accountDeleted", sender: self)
         }
         alert.addAction(actionLeft)

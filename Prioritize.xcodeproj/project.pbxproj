@@ -7,18 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3114ADEB1BB7596600FB7342 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3114ADEA1BB7596600FB7342 /* FontAwesome.otf */; settings = {ASSET_TAGS = (); }; };
-		311A2DDC1BA932540078422E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDB1BA932540078422E /* InterfaceController.swift */; };
-		311A2DDE1BA932540078422E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDD1BA932540078422E /* NotificationController.swift */; };
-		311A2DE01BA932540078422E /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DDF1BA932540078422E /* GlanceController.swift */; };
-		311A2DE21BA932540078422E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311A2DE11BA932540078422E /* Assets.xcassets */; };
-		311A2DE71BA932540078422E /* Prioritize WatchKit 1 App.app in Resources */ = {isa = PBXBuildFile; fileRef = 311A2DE61BA932540078422E /* Prioritize WatchKit 1 App.app */; };
-		311A2DEF1BA932540078422E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311A2DEE1BA932540078422E /* Assets.xcassets */; };
-		311A2DF31BA932540078422E /* Prioritize WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3114ADEB1BB7596600FB7342 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3114ADEA1BB7596600FB7342 /* FontAwesome.otf */; };
 		311A2DFE1BA9333D0078422E /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DFD1BA9333D0078422E /* ItemsViewModel.swift */; };
-		311A2DFF1BA9333D0078422E /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2DFD1BA9333D0078422E /* ItemsViewModel.swift */; };
-		311A2E011BA933900078422E /* ItemRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A2E001BA933900078422E /* ItemRowController.swift */; };
-		311A2E031BA933A70078422E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311A2E021BA933A70078422E /* Interface.storyboard */; };
 		313EEE491B562EC7007A3017 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */; };
 		313EEE4B1B567560007A3017 /* EditEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */; };
 		313EEE4D1B567AC3007A3017 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */; };
@@ -26,10 +16,9 @@
 		3169A8451ADE410000CBB35B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8441ADE410000CBB35B /* LocalStore.swift */; };
 		3169A84A1ADE449300CBB35B /* DragDropBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169A8491ADE449300CBB35B /* DragDropBehavior.swift */; };
 		317E69D51AB7FB3500C40FA9 /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E69D41AB7FB3500C40FA9 /* MenuControl.swift */; };
-		3188967E1BAD0E6F009BB8F6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188967D1BAD0E6F009BB8F6 /* IntroViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		31892EFE1BCB45B000A99E6B /* DOHamburgerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31892EFD1BCB45B000A99E6B /* DOHamburgerButton.swift */; settings = {ASSET_TAGS = (); }; };
-		31960DB91BAD1590008C3B0A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31960DB81BAD1590008C3B0A /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		31960DBA1BAD1590008C3B0A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31960DB81BAD1590008C3B0A /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		3188967E1BAD0E6F009BB8F6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188967D1BAD0E6F009BB8F6 /* IntroViewController.swift */; };
+		31892EFE1BCB45B000A99E6B /* DOHamburgerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31892EFD1BCB45B000A99E6B /* DOHamburgerButton.swift */; };
+		31960DB91BAD1590008C3B0A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31960DB81BAD1590008C3B0A /* Parse.framework */; };
 		319AF57D1B790CF400776094 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC41AA29F8A00C6B2C9 /* Info.plist */; };
 		31A5D4CE1ABBD85D008FDFC1 /* refresh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CC1ABBD85D008FDFC1 /* refresh.wav */; };
 		31A5D4CF1ABBD85D008FDFC1 /* done.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31A5D4CD1ABBD85D008FDFC1 /* done.wav */; };
@@ -53,27 +42,10 @@
 		31B12C1D1AA2B2DB00C6B2C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B12C1C1AA2B2DB00C6B2C9 /* Images.xcassets */; };
 		31C83C0C1B59774F00F9A740 /* CreateAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C83C0B1B59774F00F9A740 /* CreateAccountTableViewController.swift */; };
 		31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31CC1CA51B28BA9400E238F2 /* MapKit.framework */; };
-		31DE231B1BB746CE00BFBCF4 /* SoundPlayer+Prioritize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+Prioritize.swift */; settings = {ASSET_TAGS = (); }; };
-		31E9194D1BC4DDDF00F151FE /* rejected.aif in Resources */ = {isa = PBXBuildFile; fileRef = 31E9194C1BC4DDDF00F151FE /* rejected.aif */; settings = {ASSET_TAGS = (); }; };
+		31DE231B1BB746CE00BFBCF4 /* SoundPlayer+Prioritize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5D4D01ABBD8B7008FDFC1 /* SoundPlayer+Prioritize.swift */; };
+		31E9194D1BC4DDDF00F151FE /* rejected.aif in Resources */ = {isa = PBXBuildFile; fileRef = 31E9194C1BC4DDDF00F151FE /* rejected.aif */; };
 		34ABC05B79662BCBAA4BB9B9 /* Pods_Prioritize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		311A2DE81BA932540078422E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 31B12B7F1AA29E4E00C6B2C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 311A2DE51BA932540078422E;
-			remoteInfo = "Prioritize WatchKit 1 App";
-		};
-		311A2DF11BA932540078422E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 31B12B7F1AA29E4E00C6B2C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 311A2DD61BA932540078422E;
-			remoteInfo = "Prioritize WatchKit 1 Extension";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		31048AC91B294484005A1D75 /* Embed Watch Content */ = {
@@ -92,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				311A2DF31BA932540078422E /* Prioritize WatchKit 1 Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,21 +74,7 @@
 		19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prioritize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3114ADEA1BB7596600FB7342 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = PrioritizeApp/FontAwesome.otf; sourceTree = "<group>"; };
 		311A2DD21BA932390078422E /* Prioritize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Prioritize.entitlements; path = ../Prioritize.entitlements; sourceTree = "<group>"; };
-		311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Prioritize WatchKit 1 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		311A2DDA1BA932540078422E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		311A2DDB1BA932540078422E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		311A2DDD1BA932540078422E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		311A2DDF1BA932540078422E /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		311A2DE11BA932540078422E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		311A2DE31BA932540078422E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		311A2DE61BA932540078422E /* Prioritize WatchKit 1 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prioritize WatchKit 1 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		311A2DEE1BA932540078422E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		311A2DF01BA932540078422E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		311A2DFB1BA932620078422E /* Prioritize WatchKit 1 App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Prioritize WatchKit 1 App.entitlements"; sourceTree = "<group>"; };
-		311A2DFC1BA9326D0078422E /* Prioritize WatchKit 1 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Prioritize WatchKit 1 Extension.entitlements"; sourceTree = "<group>"; };
 		311A2DFD1BA9333D0078422E /* ItemsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
-		311A2E001BA933900078422E /* ItemRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRowController.swift; sourceTree = "<group>"; };
-		311A2E021BA933A70078422E /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		313EEE481B562EC7007A3017 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		313EEE4A1B567560007A3017 /* EditEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEventTableViewController.swift; sourceTree = "<group>"; };
 		313EEE4C1B567AC3007A3017 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
@@ -162,14 +119,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		311A2DD41BA932540078422E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				31960DBA1BAD1590008C3B0A /* Parse.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		31B12B841AA29E4E00C6B2C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,40 +147,6 @@
 				3114ADEA1BB7596600FB7342 /* FontAwesome.otf */,
 			);
 			name = Fonts;
-			sourceTree = "<group>";
-		};
-		311A2DD81BA932540078422E /* Prioritize WatchKit 1 Extension */ = {
-			isa = PBXGroup;
-			children = (
-				311A2DFC1BA9326D0078422E /* Prioritize WatchKit 1 Extension.entitlements */,
-				311A2DDB1BA932540078422E /* InterfaceController.swift */,
-				311A2E001BA933900078422E /* ItemRowController.swift */,
-				311A2DDD1BA932540078422E /* NotificationController.swift */,
-				311A2DDF1BA932540078422E /* GlanceController.swift */,
-				311A2DE11BA932540078422E /* Assets.xcassets */,
-				311A2DD91BA932540078422E /* Supporting Files */,
-			);
-			path = "Prioritize WatchKit 1 Extension";
-			sourceTree = "<group>";
-		};
-		311A2DD91BA932540078422E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				311A2DE31BA932540078422E /* Info.plist */,
-				311A2DDA1BA932540078422E /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		311A2DEA1BA932540078422E /* Prioritize WatchKit 1 App */ = {
-			isa = PBXGroup;
-			children = (
-				311A2DFB1BA932620078422E /* Prioritize WatchKit 1 App.entitlements */,
-				311A2E021BA933A70078422E /* Interface.storyboard */,
-				311A2DEE1BA932540078422E /* Assets.xcassets */,
-				311A2DF01BA932540078422E /* Info.plist */,
-			);
-			path = "Prioritize WatchKit 1 App";
 			sourceTree = "<group>";
 		};
 		3169A8461ADE42EC00CBB35B /* Extra Files */ = {
@@ -283,8 +198,6 @@
 				3169A84B1ADE449600CBB35B /* Behaviors */,
 				31B12B891AA29E4E00C6B2C9 /* PrioritizeApp */,
 				31B12B9F1AA29E4E00C6B2C9 /* PrioritizeAppTests */,
-				311A2DD81BA932540078422E /* Prioritize WatchKit 1 Extension */,
-				311A2DEA1BA932540078422E /* Prioritize WatchKit 1 App */,
 				31B12B881AA29E4E00C6B2C9 /* Products */,
 				60AE61A610199E2F80368A14 /* Pods */,
 			);
@@ -294,8 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				31B12B871AA29E4E00C6B2C9 /* Prioritize.app */,
-				311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */,
-				311A2DE61BA932540078422E /* Prioritize WatchKit 1 App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,39 +291,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		311A2DD61BA932540078422E /* Prioritize WatchKit 1 Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 311A2DF71BA932540078422E /* Build configuration list for PBXNativeTarget "Prioritize WatchKit 1 Extension" */;
-			buildPhases = (
-				311A2DD31BA932540078422E /* Sources */,
-				311A2DD41BA932540078422E /* Frameworks */,
-				311A2DD51BA932540078422E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				311A2DE91BA932540078422E /* PBXTargetDependency */,
-			);
-			name = "Prioritize WatchKit 1 Extension";
-			productName = "Prioritize WatchKit 1 Extension";
-			productReference = 311A2DD71BA932540078422E /* Prioritize WatchKit 1 Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
-		};
-		311A2DE51BA932540078422E /* Prioritize WatchKit 1 App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 311A2DF41BA932540078422E /* Build configuration list for PBXNativeTarget "Prioritize WatchKit 1 App" */;
-			buildPhases = (
-				311A2DE41BA932540078422E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Prioritize WatchKit 1 App";
-			productName = "Prioritize WatchKit 1 App";
-			productReference = 311A2DE61BA932540078422E /* Prioritize WatchKit 1 App.app */;
-			productType = "com.apple.product-type.application.watchapp";
-		};
 		31B12B861AA29E4E00C6B2C9 /* Prioritize */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31B12BA61AA29E4E00C6B2C9 /* Build configuration list for PBXNativeTarget "Prioritize" */;
@@ -429,7 +307,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				311A2DF21BA932540078422E /* PBXTargetDependency */,
 			);
 			name = Prioritize;
 			productName = PrioritizeApp;
@@ -446,24 +323,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Prioritize;
 				TargetAttributes = {
-					311A2DD61BA932540078422E = {
-						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 32FG3U99MG;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					311A2DE51BA932540078422E = {
-						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 32FG3U99MG;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					31B12B861AA29E4E00C6B2C9 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 32FG3U99MG;
@@ -492,31 +351,11 @@
 			projectRoot = "";
 			targets = (
 				31B12B861AA29E4E00C6B2C9 /* Prioritize */,
-				311A2DD61BA932540078422E /* Prioritize WatchKit 1 Extension */,
-				311A2DE51BA932540078422E /* Prioritize WatchKit 1 App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		311A2DD51BA932540078422E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				311A2DE71BA932540078422E /* Prioritize WatchKit 1 App.app in Resources */,
-				311A2DE21BA932540078422E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		311A2DE41BA932540078422E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				311A2E031BA933A70078422E /* Interface.storyboard in Resources */,
-				311A2DEF1BA932540078422E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		31B12B851AA29E4E00C6B2C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,18 +422,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		311A2DD31BA932540078422E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				311A2DDE1BA932540078422E /* NotificationController.swift in Sources */,
-				311A2DFF1BA9333D0078422E /* ItemsViewModel.swift in Sources */,
-				311A2E011BA933900078422E /* ItemRowController.swift in Sources */,
-				311A2DDC1BA932540078422E /* InterfaceController.swift in Sources */,
-				311A2DE01BA932540078422E /* GlanceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		31B12B831AA29E4E00C6B2C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,110 +449,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		311A2DE91BA932540078422E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 311A2DE51BA932540078422E /* Prioritize WatchKit 1 App */;
-			targetProxy = 311A2DE81BA932540078422E /* PBXContainerItemProxy */;
-		};
-		311A2DF21BA932540078422E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 311A2DD61BA932540078422E /* Prioritize WatchKit 1 Extension */;
-			targetProxy = 311A2DF11BA932540078422E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		311A2DF51BA932540078422E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Prioritize WatchKit 1 App/Prioritize WatchKit 1 App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Prioritize_WatchKit_1_Extension;
-				INFOPLIST_FILE = "Prioritize WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Debug;
-		};
-		311A2DF61BA932540078422E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Prioritize WatchKit 1 App/Prioritize WatchKit 1 App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Prioritize_WatchKit_1_Extension;
-				INFOPLIST_FILE = "Prioritize WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Release;
-		};
-		311A2DF81BA932540078422E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Prioritize WatchKit 1 Extension/Prioritize WatchKit 1 Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Prioritize WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		311A2DF91BA932540078422E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Prioritize WatchKit 1 Extension/Prioritize WatchKit 1 Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Prioritize WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nikhil.prioritize.prioritizeapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		31B12BA41AA29E4E00C6B2C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -868,24 +592,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		311A2DF41BA932540078422E /* Build configuration list for PBXNativeTarget "Prioritize WatchKit 1 App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				311A2DF51BA932540078422E /* Debug */,
-				311A2DF61BA932540078422E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		311A2DF71BA932540078422E /* Build configuration list for PBXNativeTarget "Prioritize WatchKit 1 Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				311A2DF81BA932540078422E /* Debug */,
-				311A2DF91BA932540078422E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		31B12B821AA29E4E00C6B2C9 /* Build configuration list for PBXProject "Prioritize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

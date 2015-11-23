@@ -35,7 +35,7 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         
         bottomView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height-(topView.frame.height+usernameTableCell.frame.height+passwordTableCell.frame.height+emailTableCell.frame.height+emptyTableCell.frame.height))
         
-        var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
+        let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapReceived")
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -113,8 +113,16 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
                         self.performSegueWithIdentifier("accountCreated", sender: self)
                         currentUser.saveInBackground()
                     } else {
+                        let currentUser = PFUser.currentUser()
+                        self.finalImage = UIImage(named: "blank user")
+                        let imageData = UIImageJPEGRepresentation(self.finalImage, 0.1)
+                        let imageFile: PFFile = PFFile(data: imageData)
+                        currentUser["profilePicture"] = imageFile
                         self.performSegueWithIdentifier("accountCreated", sender: self)
+                        currentUser.saveInBackground()
                     }
+                    
+                    self.hideLoad()
                 } else {
                     let errorString = error!.userInfo["error"] as! String
                     let alert = UIAlertView(title:"Oops!", message: "\(errorString)!", delegate: self, cancelButtonTitle:"Got it!")
