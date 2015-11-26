@@ -106,16 +106,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIAlertViewDel
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         let email = alertView.textFieldAtIndex(0)?.text!
-        
-        let currentUser = PFUser.currentUser()
-        currentUser.setValue(email, forKey: "email")
-        currentUser.saveInBackgroundWithBlock {
-            (succeeded: Bool!, error: NSError!) -> Void in
-            if error == nil {
-                print("Profile Updated.")
-            } else {
-                let alert = UIAlertView(title:"Oops!", message:"The email that you have entered is already connected with another account.", delegate: self, cancelButtonTitle: "Got it!")
-                alert.show()
+        if email == "" {}
+            
+        else {
+            let currentUser = PFUser.currentUser()
+            currentUser.setValue(email, forKey: "email")
+            currentUser.saveInBackgroundWithBlock {
+                (succeeded: Bool!, error: NSError!) -> Void in
+                if error == nil {}
+                else {
+                    let alert = UIAlertView(title:"Oops!", message:"The email that you have entered is already connected with another account.", delegate: self, cancelButtonTitle: "Got it!")
+                    alert.show()
+                }
             }
         }
     }

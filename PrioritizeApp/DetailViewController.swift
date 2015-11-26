@@ -24,8 +24,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var startTimeLabel: SpringLabel!
     @IBOutlet weak var endTimeLabel: SpringLabel!
     @IBOutlet weak var totalDriveTime: UILabel!
-    @IBOutlet weak var storeOpenTime: UILabel!
-    @IBOutlet weak var storeCloseTime: UILabel!
     @IBOutlet weak var appleMapsButton: UIButton!
     @IBOutlet weak var noAddressLabel: UILabel!
     @IBOutlet weak var fromLabel: UILabel!
@@ -91,13 +89,33 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         if allDayEnd == true && allDayStart == true {
             toLabel.text = "All Day"
             fromLabel.text = "Scheduled"
+            
+            eventTitleLabel.hidden = false
+            eventTitleLabel.animate()
+            
             startTimeLabel.hidden = true
+            startTimeLabel.animate()
+            
+            toLabel.hidden = false
+            toLabel.animate()
+            
             endTimeLabel.hidden = true
+            endTimeLabel.animate()
         } else  {
             toLabel.text = "to"
             fromLabel.text = "Scheduled from"
+            
+            eventTitleLabel.hidden = false
+            eventTitleLabel.animate()
+            
             startTimeLabel.hidden = false
+            startTimeLabel.animate()
+            
+            toLabel.hidden = false
+            toLabel.animate()
+            
             endTimeLabel.hidden = false
+            endTimeLabel.animate()
         }
         
         //ADDRESS TITLE
@@ -117,18 +135,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         eventTitleLabel.text = eventTitle
         startTimeLabel.text = startTime
         endTimeLabel.text = endTime
-        
-        eventTitleLabel.hidden = false
-        eventTitleLabel.animate()
-        
-        startTimeLabel.hidden = false
-        startTimeLabel.animate()
-        
-        toLabel.hidden = false
-        toLabel.animate()
-        
-        endTimeLabel.hidden = false
-        endTimeLabel.animate()
         
         //MAPVIEW
         //If no address, then don't show the MapView.

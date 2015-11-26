@@ -30,7 +30,6 @@
 		31B12BC81AA29FB000C6B2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC61AA29FB000C6B2C9 /* LaunchScreen.xib */; };
 		31B12BC91AA29FB000C6B2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B12BC71AA29FB000C6B2C9 /* Main.storyboard */; };
 		31B12C071AA2A1BE00C6B2C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */; };
-		31B12C091AA2A1C400C6B2C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */; };
 		31B12C0B1AA2A1C900C6B2C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C0A1AA2A1C900C6B2C9 /* Security.framework */; };
 		31B12C0D1AA2A1CF00C6B2C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C0C1AA2A1CF00C6B2C9 /* QuartzCore.framework */; };
 		31B12C0F1AA2A1D500C6B2C9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B12C0E1AA2A1D500C6B2C9 /* MobileCoreServices.framework */; };
@@ -102,7 +101,6 @@
 		31B12BC61AA29FB000C6B2C9 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		31B12BC71AA29FB000C6B2C9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		31B12C0A1AA2A1C900C6B2C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		31B12C0C1AA2A1CF00C6B2C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		31B12C0E1AA2A1D500C6B2C9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -131,7 +129,6 @@
 				31B12C0D1AA2A1CF00C6B2C9 /* QuartzCore.framework in Frameworks */,
 				31960DB91BAD1590008C3B0A /* Parse.framework in Frameworks */,
 				31B12C0B1AA2A1C900C6B2C9 /* Security.framework in Frameworks */,
-				31B12C091AA2A1C400C6B2C9 /* StoreKit.framework in Frameworks */,
 				31B12C071AA2A1BE00C6B2C9 /* SystemConfiguration.framework in Frameworks */,
 				31CC1CA61B28BA9400E238F2 /* MapKit.framework in Frameworks */,
 				34ABC05B79662BCBAA4BB9B9 /* Pods_Prioritize.framework in Frameworks */,
@@ -271,7 +268,6 @@
 				31B12C0E1AA2A1D500C6B2C9 /* MobileCoreServices.framework */,
 				31B12C0C1AA2A1CF00C6B2C9 /* QuartzCore.framework */,
 				31B12C0A1AA2A1C900C6B2C9 /* Security.framework */,
-				31B12C081AA2A1C400C6B2C9 /* StoreKit.framework */,
 				31B12C061AA2A1BE00C6B2C9 /* SystemConfiguration.framework */,
 				31960DB81BAD1590008C3B0A /* Parse.framework */,
 				19D8C15B41746A553C0B3E23 /* Pods_Prioritize.framework */,
@@ -329,6 +325,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;

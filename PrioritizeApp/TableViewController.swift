@@ -306,6 +306,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "stopEditing")
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         profileImage.hidden = true
+        menuButton.deselect()
     }
     
     func stopEditing() {
